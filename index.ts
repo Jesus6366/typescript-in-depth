@@ -312,36 +312,74 @@
 
 ///////// discriminating unions///////
 
-type NetworkLoadingState = {
-  state: "loading";
+// type NetworkLoadingState = {
+//   state: "loading";
+// };
+
+// type NetworkFailedState = {
+//   state: "failed";
+//   code: number;
+// };
+
+// type NetworkSuccessState = {
+//   state: "success";
+//   response: {
+//     title: string;
+//     duration: number;
+//     summary: string;
+//   };
+// };
+
+// type NetworkState =
+//   | NetworkLoadingState
+//   | NetworkFailedState
+//   | NetworkSuccessState;
+
+// function logger(state: NetworkState) {
+//   switch (state.state) {
+//     case "loading":
+//       return "Loading...";
+//     case "failed":
+//       return state.code;
+//     case "success":
+//       return `Downloading ${state.response.title}`;
+//   }
+// }
+
+//// excercise /////
+
+type Caterer = {
+  name: string;
+  address: string;
+  phone: number;
 };
 
-type NetworkFailedState = {
-  state: "failed";
-  code: number;
+type Seats = {
+  [keyof: string]: string;
 };
 
-type NetworkSuccessState = {
-  state: "success";
-  response: {
-    title: string;
-    duration: number;
-    summary: string;
-  };
+type Airplane = {
+  model: string;
+  flightNumber: string;
+  timeOfDeparture: Date;
+  timeOfArrival: Date;
+  caterer: Caterer;
+  seats: Seats;
 };
 
-type NetworkState =
-  | NetworkLoadingState
-  | NetworkFailedState
-  | NetworkSuccessState;
-
-function logger(state: NetworkState) {
-  switch (state.state) {
-    case "loading":
-      return "Loading...";
-    case "failed":
-      return state.code;
-    case "success":
-      return `Downloading ${state.response.title}`;
-  }
-}
+let airplane: Airplane = {
+  model: "Airbus A380",
+  flightNumber: "A2201",
+  timeOfDeparture: new Date(),
+  timeOfArrival: new Date(),
+  caterer: {
+    name: "Special Food Ltd",
+    address: "484, Some Street, New York",
+    phone: 7867856751,
+  },
+  seats: {
+    A1: "John Doe",
+    A2: "Mark Doe",
+    A3: "Sam Doe",
+  },
+};
