@@ -279,32 +279,69 @@
 //   },
 // };
 
-type Dog = {
-  name: string;
-  barks: boolean;
-  wags: boolean;
+////////////type unions in objects ///////
+// type Dog = {
+//   name: string;
+//   barks: boolean;
+//   wags: boolean;
+// };
+
+// type Cat = {
+//   name: string;
+//   purrs: boolean;
+// };
+
+// type DogCat = Dog | Cat;
+
+// let dog: DogCat = {
+//   name: "Buddy",
+//   barks: true,
+//   wags: true,
+// };
+
+// let cat: DogCat = {
+//   name: "Bella",
+//   purrs: true,
+// };
+
+// let hibridAnimal: DogCat = {
+//   name: "Bella",
+//   purrs: true,
+//   barks: true,
+// };
+
+///////// discriminating unions///////
+
+type NetworkLoadingState = {
+  state: "loading";
 };
 
-type Cat = {
-  name: string;
-  purrs: boolean;
+type NetworkFailedState = {
+  state: "failed";
+  code: number;
 };
 
-type DogCat = Dog | Cat;
-
-let dog: DogCat = {
-  name: "Buddy",
-  barks: true,
-  wags: true,
+type NetworkSuccessState = {
+  state: "success";
+  response: {
+    title: string;
+    duration: number;
+    summary: string;
+  };
 };
 
-let cat: DogCat = {
-  name: "Bella",
-  purrs: true,
-};
+type NetworkState =
+  | NetworkLoadingState
+  | NetworkFailedState
+  | NetworkSuccessState;
 
-let hibridAnimal: DogCat = {
-  name: "Bella",
-  purrs: true,
-  barks: true,
-};
+function logger(state: NetworkState) {
+  switch (state.state) {
+    case "loading":
+      return "Loading...";
+    case "failed":
+      return state.code;
+    case "success":
+      return `Downloading ${state.response.title}`;
+  }
+}
