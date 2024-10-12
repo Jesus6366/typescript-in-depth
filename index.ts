@@ -207,14 +207,26 @@
 //   date: new Date(),
 // };
 
+type Author = {
+  name: string;
+  age: number;
+  email: string;
+};
+
 type Post = {
   title: string;
   content: string;
   date: Date;
+  author: Author;
 };
 
 let post: Post = {
   title: "This is a blog post",
   content: "Content of the post",
   date: new Date(),
+  author: {
+    name: "john",
+    age: 22,
+    email: "John@doe.com",
+  },
 };
