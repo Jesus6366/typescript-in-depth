@@ -89,13 +89,20 @@
 // console.log(multiplyByTwo("string"));
 
 // //Type Aliases
-
+// Declaration
 // type CustomString = string;
 // type CustomNumber = number;
 // type CustomDate = Date;
 // type CustomSymbol = Symbol;
-
+// Anotation
 // let firstName: CustomString = "Mark";
 // let age: CustomNumber = 32;
 // let today: CustomDate = new Date();
 // let unique: CustomSymbol = Symbol();
+
+//Inference
+function addNumbers(a: number, b: number): number {
+  return a + b;
+}
+// infering that the variable will be a number
+let finalResult = addNumbers(10, 15);
