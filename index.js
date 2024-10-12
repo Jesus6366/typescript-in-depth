@@ -24,12 +24,31 @@
 // console.log(user);
 // let userRole: null;
 // console.log((userRole = null));
-// bigint Type
-const safeInt = Number.MAX_SAFE_INTEGER;
-console.log(safeInt);
-const safeIntPlusOne = safeInt + 1;
-const safeIntPlusTwo = safeInt + 2;
-console.log(safeIntPlusOne);
-console.log(safeIntPlusTwo);
-let bigInt1 = BigInt(1234);
-console.log(bigInt1);
+// // bigint Type
+// const safeInt = Number.MAX_SAFE_INTEGER;
+// console.log(safeInt);
+// const safeIntPlusOne = safeInt + 1;
+// const safeIntPlusTwo = safeInt + 2;
+// console.log(safeIntPlusOne);
+// console.log(safeIntPlusTwo);
+// let bigInt1: bigint = BigInt(1234);
+// console.log(bigInt1);
+// // Simbols
+// let id: symbol = Symbol();
+// console.log(id);
+// let alphaberticId: symbol = Symbol("id");
+// console.log(alphaberticId);
+// let user = {
+//   [id]: "1234",
+//   name: "Mark",
+// };
+/**
+ * Assign the correct types to each of the following variables
+ */
+let message = "Hello, TypeScript!";
+let age = 42;
+let isStudent = true;
+let fetched = null;
+let user = undefined;
+let largeNumber = 9007199254740991n;
+let unique = Symbol("uniqueSymbol");
