@@ -207,74 +207,104 @@
 //   date: new Date(),
 // };
 
-type Author = {
+// type Author = {
+//   name: string;
+//   age: number;
+//   email: string;
+//   readonly type: "human" | "Ai";
+// };
+
+// type AwardDetails = {
+//   name: string;
+//   date: Date;
+// };
+
+// type Awards = {
+//   /// index signature ////
+//   [key: string]: AwardDetails;
+// };
+
+// // post type declaration
+// type Post = {
+//   title: string;
+//   content: string;
+//   date: Date;
+//   author: Author;
+//   awards: Awards;
+//   category?: string;
+// };
+
+// let post: Post = {
+//   title: "This is a blog post",
+//   content: "Content of the post",
+//   date: new Date(),
+//   author: {
+//     name: "john",
+//     age: 22,
+//     email: "John@doe.com",
+//     type: "human",
+//   },
+//   awards: {
+//     web: {
+//       name: "Web Awards",
+//       date: new Date(),
+//     },
+//     web3: {
+//       name: "Web3 Awards",
+//       date: new Date(),
+//     },
+//   },
+//   category: "Javascript",
+// };
+
+// let post2: Post = {
+//   title: "This is a blog post",
+//   content: "Content of the post",
+//   date: new Date(),
+//   author: {
+//     name: "john",
+//     age: 22,
+//     email: "John@doe.com",
+//     type: "Ai",
+//   },
+//   awards: {
+//     web: {
+//       name: "Web Awards",
+//       date: new Date(),
+//     },
+//     web3: {
+//       name: "Web3 Awards",
+//       date: new Date(),
+//     },
+//   },
+// };
+
+type Dog = {
   name: string;
-  age: number;
-  email: string;
-  readonly type: "human" | "Ai";
+  barks: boolean;
+  wags: boolean;
 };
 
-type AwardDetails = {
+type Cat = {
   name: string;
-  date: Date;
+  purrs: boolean;
 };
 
-type Awards = {
-  /// index signature ////
-  [key: string]: AwardDetails;
+type DogCat = Dog | Cat;
+
+let dog: DogCat = {
+  name: "Buddy",
+  barks: true,
+  wags: true,
 };
 
-// post type declaration
-type Post = {
-  title: string;
-  content: string;
-  date: Date;
-  author: Author;
-  awards: Awards;
-  category?: string;
+let cat: DogCat = {
+  name: "Bella",
+  purrs: true,
 };
 
-let post: Post = {
-  title: "This is a blog post",
-  content: "Content of the post",
-  date: new Date(),
-  author: {
-    name: "john",
-    age: 22,
-    email: "John@doe.com",
-    type: "human",
-  },
-  awards: {
-    web: {
-      name: "Web Awards",
-      date: new Date(),
-    },
-    web3: {
-      name: "Web3 Awards",
-      date: new Date(),
-    },
-  },
-  category: "Javascript",
-};
-
-let post2: Post = {
-  title: "This is a blog post",
-  content: "Content of the post",
-  date: new Date(),
-  author: {
-    name: "john",
-    age: 22,
-    email: "John@doe.com",
-    type: "Ai",
-  },
-  awards: {
-    web: {
-      name: "Web Awards",
-      date: new Date(),
-    },
-    web3: {
-      name: "Web3 Awards",
-      date: new Date(),
-    },
-  },
+let hibridAnimal: DogCat = {
+  name: "Bella",
+  purrs: true,
+  barks: true,
 };
