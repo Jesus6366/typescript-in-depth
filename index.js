@@ -11,4 +11,14 @@ let post = {
         age: 22,
         email: "John@doe.com",
     },
+    awards: {
+        web: {
+            name: "Web Awards",
+            date: new Date(),
+        },
+        web3: {
+            name: "Web3 Awards",
+            date: new Date(),
+        },
+    },
 };

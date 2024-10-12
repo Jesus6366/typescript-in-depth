@@ -213,11 +213,22 @@ type Author = {
   email: string;
 };
 
+type AwardDetails = {
+  name: string;
+  date: Date;
+};
+
+type Awards = {
+  /// index signature ////
+  [key: string]: AwardDetails;
+};
+
 type Post = {
   title: string;
   content: string;
   date: Date;
   author: Author;
+  awards: Awards;
 };
 
 let post: Post = {
@@ -228,5 +239,15 @@ let post: Post = {
     name: "john",
     age: 22,
     email: "John@doe.com",
+  },
+  awards: {
+    web: {
+      name: "Web Awards",
+      date: new Date(),
+    },
+    web3: {
+      name: "Web3 Awards",
+      date: new Date(),
+    },
   },
 };
