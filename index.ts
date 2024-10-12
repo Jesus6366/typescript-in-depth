@@ -109,19 +109,29 @@
 
 //////////////////Union Types/////////////
 
-type StringOrNumber = string | number;
-type NumberOrUndefined = number | undefined;
-type StringNumberOrUndefined = string | number | undefined;
+// type StringOrNumber = string | number;
+// type NumberOrUndefined = number | undefined;
+// type StringNumberOrUndefined = string | number | undefined;
 
-let stringOrNumber: StringOrNumber = 1233;
+// let stringOrNumber: StringOrNumber = 1233;
 
-function print(input: string | undefined) {
-  if (!input) {
-    console.log("Please input something to print");
-  } else {
-    console.log(input);
-  }
-}
+// function print(input: string | undefined) {
+//   if (!input) {
+//     console.log("Please input something to print");
+//   } else {
+//     console.log(input);
+//   }
+// }
 
-print();
-print("hello");
+// print();
+// print("hello");
+
+////////////// Conditional Types ////////
+// type CustomDate = Date;
+// type CustomString = string;
+
+// type TrueString = CustomString extends string ? true : false;
+
+// type ConditionalNumber = CustomDate extends Date ? number : string;
+
+// type DateAssigment = CustomDate extends Date ? Date : undefined;
