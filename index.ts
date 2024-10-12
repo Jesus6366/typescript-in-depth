@@ -24,9 +24,23 @@
 // const alwaysStudent = true;
 // let minimumAge: boolean = age >= 6 ? true : false;
 
-// null and undefined types
-let user: undefined;
-console.log(user);
+// // null and undefined types
+// let user: undefined;
+// console.log(user);
 
-let userRole: null;
-console.log((userRole = null));
+// let userRole: null;
+// console.log((userRole = null));
+
+// bigint Type
+const safeInt = Number.MAX_SAFE_INTEGER;
+
+console.log(safeInt);
+
+const safeIntPlusOne = safeInt + 1;
+const safeIntPlusTwo = safeInt + 2;
+
+console.log(safeIntPlusOne);
+console.log(safeIntPlusTwo);
+
+let bigInt1: bigint = BigInt(1234);
+console.log(bigInt1);
