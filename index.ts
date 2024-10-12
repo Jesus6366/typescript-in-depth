@@ -75,3 +75,15 @@
 // function returnParam (param)  {
 //     return param
 // }
+
+// // unknown Type
+
+// function multiplyByTwo(number: unknown): number | string {
+//   if (typeof number === "number") {
+//     return number * 2;
+//   }
+//   return "Please provide a valid number ";
+// }
+
+// console.log(multiplyByTwo(10));
+// console.log(multiplyByTwo("string"));
