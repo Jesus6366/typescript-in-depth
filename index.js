@@ -105,3 +105,15 @@
 // type TrueString = CustomString extends string ? true : false;
 // type ConditionalNumber = CustomDate extends Date ? number : string;
 // type DateAssigment = CustomDate extends Date ? Date : undefined;
+///////////////Type Casting ////////////
+let firstName = "Mark";
+let lastName = "Doe";
+// User from API
+let user = {
+    name: "mark",
+    email: "mark@email.com",
+};
+function fetchUser() {
+    return user;
+}
+const fetchedUser = fetchUser();
