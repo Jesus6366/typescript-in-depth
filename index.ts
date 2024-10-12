@@ -1,4 +1,4 @@
-// // Primitive types
+// // //////Primitive types///////////
 // // Strings // manually typed
 // let firstName: string = "John";
 
@@ -45,7 +45,7 @@
 // let bigInt1: bigint = BigInt(1234);
 // console.log(bigInt1);
 
-// // Simbols
+// // Simbols//////////
 // let id: symbol = Symbol();
 // console.log(id);
 // let alphaberticId: symbol = Symbol("id");
@@ -76,7 +76,7 @@
 //     return param
 // }
 
-// // unknown Type
+// /////////// unknown Type/////////////////
 
 // function multiplyByTwo(number: unknown): number | string {
 //   if (typeof number === "number") {
@@ -88,21 +88,40 @@
 // console.log(multiplyByTwo(10));
 // console.log(multiplyByTwo("string"));
 
-// //Type Aliases
-// Declaration
+// ///////////////Type Aliases////////////
+// ////////Declaration
 // type CustomString = string;
 // type CustomNumber = number;
 // type CustomDate = Date;
 // type CustomSymbol = Symbol;
-// Anotation
+// ////////////Anotation
 // let firstName: CustomString = "Mark";
 // let age: CustomNumber = 32;
 // let today: CustomDate = new Date();
 // let unique: CustomSymbol = Symbol();
 
-//Inference
-function addNumbers(a: number, b: number): number {
-  return a + b;
+// //////////////Inference//////////
+// function addNumbers(a: number, b: number): number {
+//   return a + b;
+// }
+// // infering that the variable will be a number
+// let finalResult = addNumbers(10, 15);
+
+//////////////////Union Types/////////////
+
+type StringOrNumber = string | number;
+type NumberOrUndefined = number | undefined;
+type StringNumberOrUndefined = string | number | undefined;
+
+let stringOrNumber: StringOrNumber = 1233;
+
+function print(input: string | undefined) {
+  if (!input) {
+    console.log("Please input something to print");
+  } else {
+    console.log(input);
+  }
 }
-// infering that the variable will be a number
-let finalResult = addNumbers(10, 15);
+
+print();
+print("hello");
