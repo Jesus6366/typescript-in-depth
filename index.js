@@ -105,23 +105,48 @@
 // type TrueString = CustomString extends string ? true : false;
 // type ConditionalNumber = CustomDate extends Date ? number : string;
 // type DateAssigment = CustomDate extends Date ? Date : undefined;
-///////////////Type Casting ////////////
-let firstName = "Mark";
-let lastName = "Doe";
-// User from API
-let user = {
-    name: "mark",
-    email: "mark@email.com",
+// ///////////////Type Casting ////////////
+// let firstName = <any>"Mark";
+// let lastName = "Doe" as any;
+// // User from API
+// let user = {
+//   name: "mark",
+//   email: "mark@email.com",
+// };
+// type User = {
+//   name: string;
+//   email: string;
+// };
+// function fetchUser() {
+//   return user as User;
+// }
+// const fetchedUser = fetchUser();
+// /// excercise
+// let city = "New York"; // string
+// let population = 8400000; // number
+// const age = 32; // 32
+// let oldAge = 79 as const; // 79
+// let newAge = oldAge; // 79
+// let data = new Map(); // Map
+// let score = [90, 86, 100]; // number[]
+// type Primitive = string | number | boolean;
+// type CustomName = "John" extends string ? string : "John"; // string
+// type CustomAge = typeof newAge extends number ? 79 : number;
+// type CheckData = typeof data extends Object ? true : false;
+// type CheckScore = typeof score extends never ? {} : [];
+/////////////////Objects ////////////////
+let person = {
+    name: "Mark",
+    age: 32,
 };
-function fetchUser() {
-    return user;
-}
-const fetchedUser = fetchUser();
-/// excercise
-let city = "New York"; // string
-let population = 8400000; // number
-const age = 32; // 32
-let oldAge = 79; // 79
-let newAge = oldAge; // 79
-let data = new Map(); // Map
-let score = [90, 86, 100]; // number[]
+let car = {
+    brand: "BMW",
+    color: "Black",
+};
+// not needed
+car = [];
+car = () => { };
+let newCar = {
+    brand: "BMW",
+    color: "Black",
+};

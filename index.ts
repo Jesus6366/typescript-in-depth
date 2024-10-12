@@ -136,37 +136,61 @@
 
 // type DateAssigment = CustomDate extends Date ? Date : undefined;
 
-///////////////Type Casting ////////////
-let firstName = <any>"Mark";
-let lastName = "Doe" as any;
+// ///////////////Type Casting ////////////
+// let firstName = <any>"Mark";
+// let lastName = "Doe" as any;
 
-// User from API
-let user = {
-  name: "mark",
-  email: "mark@email.com",
+// // User from API
+// let user = {
+//   name: "mark",
+//   email: "mark@email.com",
+// };
+
+// type User = {
+//   name: string;
+//   email: string;
+// };
+
+// function fetchUser() {
+//   return user as User;
+// }
+
+// const fetchedUser = fetchUser();
+
+// /// excercise
+// let city = "New York"; // string
+// let population = 8400000; // number
+// const age = 32; // 32
+// let oldAge = 79 as const; // 79
+// let newAge = oldAge; // 79
+// let data = new Map(); // Map
+// let score = [90, 86, 100]; // number[]
+// type Primitive = string | number | boolean;
+// type CustomName = "John" extends string ? string : "John"; // string
+// type CustomAge = typeof newAge extends number ? 79 : number;
+// type CheckData = typeof data extends Object ? true : false;
+// type CheckScore = typeof score extends never ? {} : [];
+
+/////////////////Objects ////////////////
+
+let person = {
+  name: "Mark",
+  age: 32,
 };
 
-type User = {
-  name: string;
-  email: string;
+let car: Object = {
+  brand: "BMW",
+  color: "Black",
 };
 
-function fetchUser() {
-  return user as User;
-}
+// not needed
+car = [];
+car = () => {};
 
-const fetchedUser = fetchUser();
-
-/// excercise
-let city = "New York"; // string
-let population = 8400000; // number
-const age = 32; // 32
-let oldAge = 79 as const; // 79
-let newAge = oldAge; // 79
-let data = new Map(); // Map
-let score = [90, 86, 100]; // number[]
-type Primitive = string | number | boolean;
-type CustomName = "John" extends string ? string : "John"; // string
-type CustomAge = typeof newAge extends number ? 79 : number;
-type CheckData = typeof data extends Object ? true : false;
-type CheckScore = typeof score extends never ? {} : [];
+let newCar: {
+  brand: string;
+  color: string;
+} = {
+  brand: "BMW",
+  color: "Black",
+};
