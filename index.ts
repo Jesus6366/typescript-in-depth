@@ -447,12 +447,67 @@
 
 // const passingStudents: ListOfStudents = [3, true, "John", "Mark", "Stella"];
 
-///// read only tuples and arrays /////
-let number: readonly number[] = [1, 2, 3];
+// ///// read only tuples and arrays /////
+// let number: readonly number[] = [1, 2, 3];
 
-// number.push()
+// // number.push()
 
-type ReadOnlyTuple = readonly [string, string, number];
+// type ReadOnlyTuple = readonly [string, string, number];
 
-// read only tuple
-let person: ReadOnlyTuple = ["John", "Doe", 21];
+// // read only tuple
+// let person: ReadOnlyTuple = ["John", "Doe", 21];
+
+/////////////// Enums ///////////////////
+
+const STATUS_LOADING = "loading";
+const STATUS_STOPPED = "stopped";
+
+// STATUS_LOADING = "stopped";
+// this will be read only
+enum Direction {
+  Up, // 0
+  Down, // 1
+  Left, // 2
+  Right, // 3
+}
+
+console.log(Direction.Up);
+// Direction.Left = 5;
+
+enum Direction2 {
+  Up = 1, // 1
+  Down, // 2
+  Left, // 3
+  Right, // 4
+}
+console.log(Direction2.Down);
+
+// the most one used
+enum Roles {
+  ADMIN = "admin",
+  AUTHOR = "author",
+  EDITOR = "editor",
+}
+
+type Person = {
+  name: string;
+  email: string;
+  password: string;
+  role: Roles;
+};
+
+let person: Person = {
+  name: "John",
+  email: "Email@email.com",
+  password: "1234dg",
+  role: Roles.ADMIN,
+};
+
+console.log(person);
+
+enum Direction3 {
+  Up = 1, // 1
+  Down = "down", // 2
+  Left = 3, // 3
+  Right, // 4
+}

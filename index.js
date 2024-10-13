@@ -368,7 +368,52 @@
 // let user: User = ["John", "Doe", 18, "Email@email.com"];
 // type ListOfStudents = [number, boolean, ...string[]];
 // const passingStudents: ListOfStudents = [3, true, "John", "Mark", "Stella"];
-///// read only tuples and arrays /////
-let number = [1, 2, 3];
-// read only tuple
-let person = ["John", "Doe", 21];
+// ///// read only tuples and arrays /////
+// let number: readonly number[] = [1, 2, 3];
+// // number.push()
+// type ReadOnlyTuple = readonly [string, string, number];
+// // read only tuple
+// let person: ReadOnlyTuple = ["John", "Doe", 21];
+/////////////// Enums ///////////////////
+const STATUS_LOADING = "loading";
+const STATUS_STOPPED = "stopped";
+// STATUS_LOADING = "stopped";
+// this will be read only
+var Direction;
+(function (Direction) {
+    Direction[Direction["Up"] = 0] = "Up";
+    Direction[Direction["Down"] = 1] = "Down";
+    Direction[Direction["Left"] = 2] = "Left";
+    Direction[Direction["Right"] = 3] = "Right";
+})(Direction || (Direction = {}));
+console.log(Direction.Up);
+// Direction.Left = 5;
+var Direction2;
+(function (Direction2) {
+    Direction2[Direction2["Up"] = 1] = "Up";
+    Direction2[Direction2["Down"] = 2] = "Down";
+    Direction2[Direction2["Left"] = 3] = "Left";
+    Direction2[Direction2["Right"] = 4] = "Right";
+})(Direction2 || (Direction2 = {}));
+console.log(Direction2.Down);
+// the most one used
+var Roles;
+(function (Roles) {
+    Roles["ADMIN"] = "admin";
+    Roles["AUTHOR"] = "author";
+    Roles["EDITOR"] = "editor";
+})(Roles || (Roles = {}));
+let person = {
+    name: "John",
+    email: "Email@email.com",
+    password: "1234dg",
+    role: Roles.ADMIN,
+};
+console.log(person);
+var Direction3;
+(function (Direction3) {
+    Direction3[Direction3["Up"] = 1] = "Up";
+    Direction3["Down"] = "down";
+    Direction3[Direction3["Left"] = 3] = "Left";
+    Direction3[Direction3["Right"] = 4] = "Right";
+})(Direction3 || (Direction3 = {}));
