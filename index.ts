@@ -698,15 +698,36 @@
 
 /////////// void and never types ////////////
 // void
-function writeToDataBase(value: string): void {
-  console.log("Writing to a database", value);
+// function writeToDataBase(value: string): void {
+//   console.log("Writing to a database", value);
+// }
+
+// writeToDataBase("(Data...)");
+
+// // never
+// function throwError(error: string): never {
+//   throw new Error(error);
+// }
+
+// console.log(throwError("could not get data "));
+
+//////// Async Function//////
+
+async function fetchFromDatabase(id: number): Promise<any> {}
+
+const anotherAsyncFunction = async (): Promise<any> => {};
+
+async function returnString(id: number): Promise<string> {
+  return Promise.resolve("string");
 }
 
-writeToDataBase("(Data...)");
+type User = {
+  name: string;
+  age: number;
+};
 
-// never
-function throwError(error: string): never {
-  throw new Error(error);
+async function returnUser(id: number): Promise<User> {
+  return Promise.resolve({ name: "Jhon", age: 20 });
 }
 
-console.log(throwError("could not get data "));
+returnUser(2).then((res) => console.log(res));

@@ -559,12 +559,22 @@
 // });
 /////////// void and never types ////////////
 // void
-function writeToDataBase(value) {
-    console.log("Writing to a database", value);
+// function writeToDataBase(value: string): void {
+//   console.log("Writing to a database", value);
+// }
+// writeToDataBase("(Data...)");
+// // never
+// function throwError(error: string): never {
+//   throw new Error(error);
+// }
+// console.log(throwError("could not get data "));
+//////// Async Function//////
+async function fetchFromDatabase(id) { }
+const anotherAsyncFunction = async () => { };
+async function returnString(id) {
+    return Promise.resolve("string");
 }
-writeToDataBase("(Data...)");
-// never
-function throwError(error) {
-    throw new Error(error);
+async function returnUser(id) {
+    return Promise.resolve({ name: "Jhon", age: 20 });
 }
-console.log(throwError("could not get data "));
+returnUser(2).then((res) => console.log(res));
