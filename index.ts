@@ -550,33 +550,73 @@
 //   All = ReadWrite | Delete,
 // }
 
-///////////////////////Enums as Unions and Types /////////////////////////
+// ///////////////////////Enums as Unions and Types /////////////////////////
 
-// basically union Circle or Square
-enum ShapeKind {
-  Circle = "circle ",
-  Square = "square",
+// // basically union Circle or Square
+// enum ShapeKind {
+//   Circle = "circle ",
+//   Square = "square",
+// }
+
+// type Circle = {
+//   kind: ShapeKind.Circle;
+//   radius: number;
+// };
+
+// type Square = {
+//   kind: ShapeKind.Square;
+//   sideLength: number;
+// };
+
+// let circle: Circle = {
+//   radius: 100,
+//   kind: ShapeKind.Circle,
+// };
+
+// console.log(circle);
+
+// function printShape(shape: ShapeKind /*circle/ square */) {
+//   console.log(shape);
+// }
+
+// printShape(ShapeKind.Circle);
+
+/////// Practice Questions //////////////////
+
+//* 1. Create an array numbers that only accepts numbers and another array strings that only accepts strings.
+
+let arrayOfNumbers: number[] = [1, 2, 3];
+let arrayOfStrings: string[] = ["1", "2", "3"];
+
+//* 2. Create a tuple person that holds a string (name) and a number (age).
+
+type Tuple = [string, number];
+
+let person: Tuple = ["Jesus", 34];
+
+//* 3. Create a readonly array colors that holds strings and a readonly tuple point that holds two numbers (x, y). Attempt to modify their elements and observe the TypeScript error.
+
+// read only array
+
+type ReadOnlyArray = readonly string[];
+
+const colors: ReadOnlyArray = ["black", "blue", "gray"];
+
+type ReadOnlyTuple = readonly [...number[]];
+const point: ReadOnlyTuple = [2, 3];
+
+//* 4. Create an enum called StatusEnum that should 3 properties Active, Inactive, Pending
+
+enum StatusEnum {
+  ACTIVE = "active",
+  INACTIVE = "inactive",
+  PENDING = "pending",
 }
 
-type Circle = {
-  kind: ShapeKind.Circle;
-  radius: number;
-};
+//* 5. Create an object as const called Status with the same structure as an StatusEnum
 
-type Square = {
-  kind: ShapeKind.Square;
-  sideLength: number;
-};
-
-let circle: Circle = {
-  radius: 100,
-  kind: ShapeKind.Circle,
-};
-
-console.log(circle);
-
-function printShape(shape: ShapeKind /*circle/ square */) {
-  console.log(shape);
-}
-
-printShape(ShapeKind.Circle);
+const Status = {
+  ACTIVE: "active",
+  INACTIVE: "inactive",
+  PENDING: "pending",
+} as const;

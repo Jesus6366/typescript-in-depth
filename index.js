@@ -451,19 +451,46 @@
 //   Delete = 4,
 //   All = ReadWrite | Delete,
 // }
-///////////////////////Enums as Unions and Types /////////////////////////
-// basically union Circle or Square
-var ShapeKind;
-(function (ShapeKind) {
-    ShapeKind["Circle"] = "circle ";
-    ShapeKind["Square"] = "square";
-})(ShapeKind || (ShapeKind = {}));
-let circle = {
-    radius: 100,
-    kind: ShapeKind.Circle,
+// ///////////////////////Enums as Unions and Types /////////////////////////
+// // basically union Circle or Square
+// enum ShapeKind {
+//   Circle = "circle ",
+//   Square = "square",
+// }
+// type Circle = {
+//   kind: ShapeKind.Circle;
+//   radius: number;
+// };
+// type Square = {
+//   kind: ShapeKind.Square;
+//   sideLength: number;
+// };
+// let circle: Circle = {
+//   radius: 100,
+//   kind: ShapeKind.Circle,
+// };
+// console.log(circle);
+// function printShape(shape: ShapeKind /*circle/ square */) {
+//   console.log(shape);
+// }
+// printShape(ShapeKind.Circle);
+/////// Practice Questions //////////////////
+//* 1. Create an array numbers that only accepts numbers and another array strings that only accepts strings.
+let arrayOfNumbers = [1, 2, 3];
+let arrayOfStrings = ["1", "2", "3"];
+let person = ["Jesus", 34];
+const colors = ["black", "blue", "gray"];
+const point = [2, 3];
+//* 4. Create an enum called StatusEnum that should 3 properties Active, Inactive, Pending
+var StatusEnum;
+(function (StatusEnum) {
+    StatusEnum["ACTIVE"] = "active";
+    StatusEnum["INACTIVE"] = "inactive";
+    StatusEnum["PENDING"] = "pending";
+})(StatusEnum || (StatusEnum = {}));
+//* 5. Create an object as const called Status with the same structure as an StatusEnum
+const Status = {
+    ACTIVE: "active",
+    INACTIVE: "inactive",
+    PENDING: "pending",
 };
-console.log(circle);
-function printShape(shape /*circle/ square */) {
-    console.log(shape);
-}
-printShape(ShapeKind.Circle);
