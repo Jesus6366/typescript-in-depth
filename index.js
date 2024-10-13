@@ -606,29 +606,85 @@
 //   return a + b + c;
 // }
 // console.log(sum(numbers));
-///////////// Function overloading //////
-const str = "Hello, world";
-const part1 = str.slice(7);
-const part2 = str.slice(7, 10);
-console.log(part1);
-console.log(part2);
-const reserve = (departureDate, returnDateOrdeartingFrom, departingFromOrDestination, destination) => {
-    if (returnDateOrdeartingFrom instanceof Date && destination) {
-        return {
-            departureDate: departureDate,
-            returnDate: returnDateOrdeartingFrom,
-            departingFrom: departingFromOrDestination,
-            destination: destination,
-        };
-    }
-    else if (typeof returnDateOrdeartingFrom === "string") {
-        return {
-            departureDate: departureDate,
-            departingFrom: returnDateOrdeartingFrom,
-            destination: departingFromOrDestination,
-        };
-    }
-    throw new Error("Please provie valid details to reserve a ticket");
+// ///////////// Function overloading //////
+// const str = "Hello, world";
+// const part1 = str.slice(7);
+// const part2 = str.slice(7, 10);
+// console.log(part1);
+// console.log(part2);
+// type Reservation = {
+//   departureDate: Date;
+//   returnDate?: Date;
+//   departingFrom: string;
+//   destination: string;
+// };
+// // function overloading
+// type Reserve = {
+//   (
+//     departureDate: Date,
+//     returnDate: Date,
+//     departingFrom: string,
+//     destination: string
+//   ): Reservation | never;
+//   (departureDate: Date, departingFrom: string, destination: string):
+//     | Reservation
+//     | never;
+// };
+// const reserve: Reserve = (
+//   departureDate: Date,
+//   returnDateOrdeartingFrom: Date | string,
+//   departingFromOrDestination: string,
+//   destination?: string
+// ) => {
+//   if (returnDateOrdeartingFrom instanceof Date && destination) {
+//     return {
+//       departureDate: departureDate,
+//       returnDate: returnDateOrdeartingFrom,
+//       departingFrom: departingFromOrDestination,
+//       destination: destination,
+//     };
+//   } else if (typeof returnDateOrdeartingFrom === "string") {
+//     return {
+//       departureDate: departureDate,
+//       departingFrom: returnDateOrdeartingFrom,
+//       destination: departingFromOrDestination,
+//     };
+//   }
+//   throw new Error("Please provie valid details to reserve a ticket");
+// };
+// console.log(reserve(new Date(), new Date(), "new york", "washingon"));
+// console.log(reserve(new Date(), "new york", "washingon"));
+/**
+ * Practice Excercise for functions
+ */
+//* 1. Declare a function named greet that takes a string parameter name and returns a greeting message.
+function greet(name) {
+    return `Hello ${name}`;
+}
+function getProduct(id) {
+    const name = `Product ${id}`; // Just an example; you could fetch this from a database or other source
+    return {
+        id: id,
+        name: name,
+    };
+}
+// Implementing the add function
+const add = (n1, n2) => {
+    return n1 + n2;
 };
-console.log(reserve(new Date(), new Date(), "new york", "washingon"));
-console.log(reserve(new Date(), "new york", "washingon"));
+// Implementing the subtract function
+const subtract = (n1, n2) => {
+    return n1 - n2;
+};
+// Example usage
+const sum = add(5, 3); // Outputs: 8
+const difference = subtract(5, 3); // Outputs: 2
+console.log("Sum:", sum);
+console.log("Difference:", difference);
+//* 4. Create a function named logMessage that takes a string message and logs it to the console, returning void. Also, create a function named throwError that takes a string message and throws an error, returning never.
+function logMessage(message) {
+    console.log(message);
+}
+function throwError(message) {
+    throw new Error(message);
+}
