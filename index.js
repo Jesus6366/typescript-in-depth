@@ -360,9 +360,15 @@
 //   },
 // ];
 /////////////////TUPLES //////////////////
-// non tuple (normal union array)
-let person = ["John", "Doe", 18];
-//tuple
-let personTuple = ["John", "Doe", 18];
-let user = ["John", "Doe", 18, "Email@email.com"];
-const passingStudents = [3, true, "John", "Mark", "Stella"];
+// // non tuple (normal union array)
+// let person: (string | number)[] = ["John", "Doe", 18];
+// //tuple
+// let personTuple: [string, string, number] = ["John", "Doe", 18];
+// type User = [string, string, number, string?];
+// let user: User = ["John", "Doe", 18, "Email@email.com"];
+// type ListOfStudents = [number, boolean, ...string[]];
+// const passingStudents: ListOfStudents = [3, true, "John", "Mark", "Stella"];
+///// read only tuples and arrays /////
+let number = [1, 2, 3];
+// read only tuple
+let person = ["John", "Doe", 21];

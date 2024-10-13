@@ -434,15 +434,25 @@
 // ];
 
 /////////////////TUPLES //////////////////
-// non tuple (normal union array)
-let person: (string | number)[] = ["John", "Doe", 18];
-//tuple
-let personTuple: [string, string, number] = ["John", "Doe", 18];
+// // non tuple (normal union array)
+// let person: (string | number)[] = ["John", "Doe", 18];
+// //tuple
+// let personTuple: [string, string, number] = ["John", "Doe", 18];
 
-type User = [string, string, number, string?];
+// type User = [string, string, number, string?];
 
-let user: User = ["John", "Doe", 18, "Email@email.com"];
+// let user: User = ["John", "Doe", 18, "Email@email.com"];
 
-type ListOfStudents = [number, boolean, ...string[]];
+// type ListOfStudents = [number, boolean, ...string[]];
 
-const passingStudents: ListOfStudents = [3, true, "John", "Mark", "Stella"];
+// const passingStudents: ListOfStudents = [3, true, "John", "Mark", "Stella"];
+
+///// read only tuples and arrays /////
+let number: readonly number[] = [1, 2, 3];
+
+// number.push()
+
+type ReadOnlyTuple = readonly [string, string, number];
+
+// read only tuple
+let person: ReadOnlyTuple = ["John", "Doe", 21];
