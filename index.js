@@ -500,15 +500,24 @@
 //   PENDING: "pending",
 // } as const;
 ////////////////FUNCTIONS/////////////
-// named function
-function intro(name, age) {
+// // named function
+// function intro(name: string, age: number): string {
+//   return `My name ${name}, and I am ${age} years old`;
+// }
+// // function expression
+// const intro2 = function (name: string, age: number): string {
+//   return `My name ${name}, and I am ${age} years old`;
+// };
+// // arrow function
+// const intro3 = (name: string, age: number): string | number => {
+//   return `My name ${name}, and I am ${age} years old`;
+// };
+//// default and optional parameters
+function intro(name, age, country) {
+    if (country) {
+        return `My name ${name}, and I am ${age} years old. I live in ${country}`;
+    }
     return `My name ${name}, and I am ${age} years old`;
 }
-// function expression
-const intro2 = function (name, age) {
-    return `My name ${name}, and I am ${age} years old`;
-};
-// arrow function
-const intro3 = (name, age) => {
-    return `My name ${name}, and I am ${age} years old`;
-};
+console.log(intro("jesus", 34));
+console.log(intro("jesus", 34, "mexico"));
