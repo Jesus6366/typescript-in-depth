@@ -689,9 +689,24 @@
 // // console.log(convertAgeToMonths(person));
 // console.log(person.greet("Hello"));
 
-/////// anonymus function
-const students: string[] = ["Alice", "Bob", "Mark"];
+// /////// anonymus function
+// const students: string[] = ["Alice", "Bob", "Mark"];
 
-students.map((student: string) => {
-  console.log(student);
-});
+// students.map((student: string) => {
+//   console.log(student);
+// });
+
+/////////// void and never types ////////////
+// void
+function writeToDataBase(value: string): void {
+  console.log("Writing to a database", value);
+}
+
+writeToDataBase("(Data...)");
+
+// never
+function throwError(error: string): never {
+  throw new Error(error);
+}
+
+console.log(throwError("could not get data "));

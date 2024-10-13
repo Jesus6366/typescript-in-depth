@@ -552,8 +552,19 @@
 // }
 // // console.log(convertAgeToMonths(person));
 // console.log(person.greet("Hello"));
-/////// anonymus function
-const students = ["Alice", "Bob", "Mark"];
-students.map((student) => {
-    console.log(student);
-});
+// /////// anonymus function
+// const students: string[] = ["Alice", "Bob", "Mark"];
+// students.map((student: string) => {
+//   console.log(student);
+// });
+/////////// void and never types ////////////
+// void
+function writeToDataBase(value) {
+    console.log("Writing to a database", value);
+}
+writeToDataBase("(Data...)");
+// never
+function throwError(error) {
+    throw new Error(error);
+}
+console.log(throwError("could not get data "));
