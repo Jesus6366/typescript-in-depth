@@ -639,13 +639,43 @@
 //   return `My name ${name}, and I am ${age} years old`;
 // };
 
-//// default and optional parameters
-function intro(name: string, age: number, country?: string): string {
-  if (country) {
-    return `My name ${name}, and I am ${age} years old. I live in ${country}`;
-  }
-  return `My name ${name}, and I am ${age} years old`;
+// //// default and optional parameters
+// function intro(name: string, age: number, country?: string): string {
+//   if (country) {
+//     return `My name ${name}, and I am ${age} years old. I live in ${country}`;
+//   }
+//   return `My name ${name}, and I am ${age} years old`;
+// }
+
+// console.log(intro("jesus", 34));
+// console.log(intro("jesus", 34, "mexico"));
+
+///////////custom parameters and return types //////////////
+
+enum AgeUnit {
+  Years = "years",
+  Months = "months",
 }
 
-console.log(intro("jesus", 34));
-console.log(intro("jesus", 34, "mexico"));
+type Person = {
+  name: string;
+  age: number;
+  ageUnit: AgeUnit;
+};
+
+const person: Person = {
+  name: "Scott",
+  age: 30,
+  ageUnit: AgeUnit.Years,
+};
+
+function convertAgeToMonths(person: Person): Person {
+  if (person.ageUnit === AgeUnit.Years) {
+    person.age = person.age * 12;
+    person.ageUnit = AgeUnit.Months;
+  }
+
+  return person;
+}
+
+console.log(convertAgeToMonths(person));

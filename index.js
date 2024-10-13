@@ -512,12 +512,31 @@
 // const intro3 = (name: string, age: number): string | number => {
 //   return `My name ${name}, and I am ${age} years old`;
 // };
-//// default and optional parameters
-function intro(name, age, country) {
-    if (country) {
-        return `My name ${name}, and I am ${age} years old. I live in ${country}`;
+// //// default and optional parameters
+// function intro(name: string, age: number, country?: string): string {
+//   if (country) {
+//     return `My name ${name}, and I am ${age} years old. I live in ${country}`;
+//   }
+//   return `My name ${name}, and I am ${age} years old`;
+// }
+// console.log(intro("jesus", 34));
+// console.log(intro("jesus", 34, "mexico"));
+///////////custom parameters and return types //////////////
+var AgeUnit;
+(function (AgeUnit) {
+    AgeUnit["Years"] = "years";
+    AgeUnit["Months"] = "months";
+})(AgeUnit || (AgeUnit = {}));
+const person = {
+    name: "Scott",
+    age: 30,
+    ageUnit: AgeUnit.Years,
+};
+function convertAgeToMonths(person) {
+    if (person.ageUnit === AgeUnit.Years) {
+        person.age = person.age * 12;
+        person.ageUnit = AgeUnit.Months;
     }
-    return `My name ${name}, and I am ${age} years old`;
+    return person;
 }
-console.log(intro("jesus", 34));
-console.log(intro("jesus", 34, "mexico"));
+console.log(convertAgeToMonths(person));
