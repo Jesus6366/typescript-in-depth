@@ -459,11 +459,61 @@
 
 /////////////// Enums ///////////////////
 
-const STATUS_LOADING = "loading";
-const STATUS_STOPPED = "stopped";
+// const STATUS_LOADING = "loading";
+// const STATUS_STOPPED = "stopped";
 
-// STATUS_LOADING = "stopped";
-// this will be read only
+// // STATUS_LOADING = "stopped";
+// // this will be read only
+// enum Direction {
+//   Up, // 0
+//   Down, // 1
+//   Left, // 2
+//   Right, // 3
+// }
+
+// console.log(Direction.Up);
+// // Direction.Left = 5;
+
+// enum Direction2 {
+//   Up = 1, // 1
+//   Down, // 2
+//   Left, // 3
+//   Right, // 4
+// }
+// console.log(Direction2.Down);
+
+// // the most one used
+// enum Roles {
+//   ADMIN = "admin",
+//   AUTHOR = "author",
+//   EDITOR = "editor",
+// }
+
+// type Person = {
+//   name: string;
+//   email: string;
+//   password: string;
+//   role: Roles;
+// };
+
+// let person: Person = {
+//   name: "John",
+//   email: "Email@email.com",
+//   password: "1234dg",
+//   role: Roles.ADMIN,
+// };
+
+// console.log(person);
+
+// enum Direction3 {
+//   Up = 1, // 1
+//   Down = "down", // 2
+//   Left = 3, // 3
+//   Right, // 4
+// }
+
+///// enums vs objects /////
+
 enum Direction {
   Up, // 0
   Down, // 1
@@ -471,43 +521,21 @@ enum Direction {
   Right, // 3
 }
 
-console.log(Direction.Up);
-// Direction.Left = 5;
-
-enum Direction2 {
-  Up = 1, // 1
-  Down, // 2
-  Left, // 3
-  Right, // 4
-}
-console.log(Direction2.Down);
-
-// the most one used
-enum Roles {
-  ADMIN = "admin",
-  AUTHOR = "author",
-  EDITOR = "editor",
+// this will not be compliled to JS
+const enum EDirection {
+  Up, // 0
+  Down, // 1
+  Left, // 2
+  Right, // 3
 }
 
-type Person = {
-  name: string;
-  email: string;
-  password: string;
-  role: Roles;
-};
+// object acting like an enum
+const ODirection = {
+  Up: 0,
+  Down: 1,
+  Left: 2,
+  Rigth: 3,
+} as const;
 
-let person: Person = {
-  name: "John",
-  email: "Email@email.com",
-  password: "1234dg",
-  role: Roles.ADMIN,
-};
-
-console.log(person);
-
-enum Direction3 {
-  Up = 1, // 1
-  Down = "down", // 2
-  Left = 3, // 3
-  Right, // 4
-}
+let eDirection = EDirection.Up;
+let direction = EDirection.Right;
