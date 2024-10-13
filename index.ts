@@ -512,30 +512,71 @@
 //   Right, // 4
 // }
 
-///// enums vs objects /////
+// ///// enums vs objects /////
 
-enum Direction {
-  Up, // 0
-  Down, // 1
-  Left, // 2
-  Right, // 3
+// enum Direction {
+//   Up, // 0
+//   Down, // 1
+//   Left, // 2
+//   Right, // 3
+// }
+
+// // this will not be compliled to JS
+// const enum EDirection {
+//   Up, // 0
+//   Down, // 1
+//   Left, // 2
+//   Right, // 3
+// }
+
+// // object acting like an enum
+// const ODirection = {
+//   Up: 0,
+//   Down: 1,
+//   Left: 2,
+//   Rigth: 3,
+// } as const;
+
+// let eDirection = EDirection.Up;
+// let direction = EDirection.Right;
+
+// //////// computed enums /////
+// enum AccessPermissions {
+//   None = 0,
+//   Read = 1,
+//   Write = 2,
+//   ReadWrite = Read + Write,
+//   Delete = 4,
+//   All = ReadWrite | Delete,
+// }
+
+///////////////////////Enums as Unions and Types /////////////////////////
+
+// basically union Circle or Square
+enum ShapeKind {
+  Circle = "circle ",
+  Square = "square",
 }
 
-// this will not be compliled to JS
-const enum EDirection {
-  Up, // 0
-  Down, // 1
-  Left, // 2
-  Right, // 3
+type Circle = {
+  kind: ShapeKind.Circle;
+  radius: number;
+};
+
+type Square = {
+  kind: ShapeKind.Square;
+  sideLength: number;
+};
+
+let circle: Circle = {
+  radius: 100,
+  kind: ShapeKind.Circle,
+};
+
+console.log(circle);
+
+function printShape(shape: ShapeKind /*circle/ square */) {
+  console.log(shape);
 }
 
-// object acting like an enum
-const ODirection = {
-  Up: 0,
-  Down: 1,
-  Left: 2,
-  Rigth: 3,
-} as const;
-
-let eDirection = EDirection.Up;
-let direction = EDirection.Right;
+printShape(ShapeKind.Circle);
