@@ -531,6 +531,9 @@ const person = {
     name: "Scott",
     age: 30,
     ageUnit: AgeUnit.Years,
+    greet: function (greeting) {
+        return `${greeting} ${this.name}`;
+    },
 };
 function convertAgeToMonths(person) {
     if (person.ageUnit === AgeUnit.Years) {
@@ -539,4 +542,5 @@ function convertAgeToMonths(person) {
     }
     return person;
 }
-console.log(convertAgeToMonths(person));
+// console.log(convertAgeToMonths(person));
+console.log(person.greet("Hello"));
