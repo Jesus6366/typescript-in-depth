@@ -711,23 +711,36 @@
 
 // console.log(throwError("could not get data "));
 
-//////// Async Function//////
+// //////// Async Function//////
 
-async function fetchFromDatabase(id: number): Promise<any> {}
+// async function fetchFromDatabase(id: number): Promise<any> {}
 
-const anotherAsyncFunction = async (): Promise<any> => {};
+// const anotherAsyncFunction = async (): Promise<any> => {};
 
-async function returnString(id: number): Promise<string> {
-  return Promise.resolve("string");
+// async function returnString(id: number): Promise<string> {
+//   return Promise.resolve("string");
+// }
+
+// type User = {
+//   name: string;
+//   age: number;
+// };
+
+// async function returnUser(id: number): Promise<User> {
+//   return Promise.resolve({ name: "Jhon", age: 20 });
+// }
+
+// returnUser(2).then((res) => console.log(res));
+
+function multiplyBy(by: number, ...number: number[]): number[] {
+  return number.map((number: number) => number * by);
 }
 
-type User = {
-  name: string;
-  age: number;
-};
+console.log(multiplyBy(2, 3, 4, 5, 6));
+console.log(multiplyBy(2, 2, 4, 6));
 
-async function returnUser(id: number): Promise<User> {
-  return Promise.resolve({ name: "Jhon", age: 20 });
-}
+const args: [number, number] = [8, 5];
+const args2 = [8, 5] as const;
 
-returnUser(2).then((res) => console.log(res));
+const angle = Math.atan2(...args);
+const angle2 = Math.atan2(...args2);

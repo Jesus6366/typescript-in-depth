@@ -568,13 +568,26 @@
 //   throw new Error(error);
 // }
 // console.log(throwError("could not get data "));
-//////// Async Function//////
-async function fetchFromDatabase(id) { }
-const anotherAsyncFunction = async () => { };
-async function returnString(id) {
-    return Promise.resolve("string");
+// //////// Async Function//////
+// async function fetchFromDatabase(id: number): Promise<any> {}
+// const anotherAsyncFunction = async (): Promise<any> => {};
+// async function returnString(id: number): Promise<string> {
+//   return Promise.resolve("string");
+// }
+// type User = {
+//   name: string;
+//   age: number;
+// };
+// async function returnUser(id: number): Promise<User> {
+//   return Promise.resolve({ name: "Jhon", age: 20 });
+// }
+// returnUser(2).then((res) => console.log(res));
+function multiplyBy(by, ...number) {
+    return number.map((number) => number * by);
 }
-async function returnUser(id) {
-    return Promise.resolve({ name: "Jhon", age: 20 });
-}
-returnUser(2).then((res) => console.log(res));
+console.log(multiplyBy(2, 3, 4, 5, 6));
+console.log(multiplyBy(2, 2, 4, 6));
+const args = [8, 5];
+const args2 = [8, 5];
+const angle = Math.atan2(...args);
+const angle2 = Math.atan2(...args2);
