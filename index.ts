@@ -652,37 +652,46 @@
 
 ///////////custom parameters and return types //////////////
 
-enum AgeUnit {
-  Years = "years",
-  Months = "months",
-}
-type GreetingFunction = (greeting: string) => string;
+// enum AgeUnit {
+//   Years = "years",
+//   Months = "months",
+// }
 
-type Person = {
-  name: string;
-  age: number;
-  ageUnit: AgeUnit;
-  // function call signature
-  greet: GreetingFunction;
-};
+//   // function call signature
+// type GreetingFunction = (greeting: string) => string;
 
-const person: Person = {
-  name: "Scott",
-  age: 30,
-  ageUnit: AgeUnit.Years,
-  greet: function (greeting) {
-    return `${greeting} ${this.name}`;
-  },
-};
+// type Person = {
+//   name: string;
+//   age: number;
+//   ageUnit: AgeUnit;
+//   // function call signature
+//   greet: GreetingFunction;
+// };
 
-function convertAgeToMonths(person: Person): Person {
-  if (person.ageUnit === AgeUnit.Years) {
-    person.age = person.age * 12;
-    person.ageUnit = AgeUnit.Months;
-  }
+// const person: Person = {
+//   name: "Scott",
+//   age: 30,
+//   ageUnit: AgeUnit.Years,
+//   greet: function (greeting) {
+//     return `${greeting} ${this.name}`;
+//   },
+// };
 
-  return person;
-}
+// function convertAgeToMonths(person: Person): Person {
+//   if (person.ageUnit === AgeUnit.Years) {
+//     person.age = person.age * 12;
+//     person.ageUnit = AgeUnit.Months;
+//   }
 
-// console.log(convertAgeToMonths(person));
-console.log(person.greet("Hello"));
+//   return person;
+// }
+
+// // console.log(convertAgeToMonths(person));
+// console.log(person.greet("Hello"));
+
+/////// anonymus function
+const students: string[] = ["Alice", "Bob", "Mark"];
+
+students.map((student: string) => {
+  console.log(student);
+});

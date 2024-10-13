@@ -522,25 +522,38 @@
 // console.log(intro("jesus", 34));
 // console.log(intro("jesus", 34, "mexico"));
 ///////////custom parameters and return types //////////////
-var AgeUnit;
-(function (AgeUnit) {
-    AgeUnit["Years"] = "years";
-    AgeUnit["Months"] = "months";
-})(AgeUnit || (AgeUnit = {}));
-const person = {
-    name: "Scott",
-    age: 30,
-    ageUnit: AgeUnit.Years,
-    greet: function (greeting) {
-        return `${greeting} ${this.name}`;
-    },
-};
-function convertAgeToMonths(person) {
-    if (person.ageUnit === AgeUnit.Years) {
-        person.age = person.age * 12;
-        person.ageUnit = AgeUnit.Months;
-    }
-    return person;
-}
-// console.log(convertAgeToMonths(person));
-console.log(person.greet("Hello"));
+// enum AgeUnit {
+//   Years = "years",
+//   Months = "months",
+// }
+//   // function call signature
+// type GreetingFunction = (greeting: string) => string;
+// type Person = {
+//   name: string;
+//   age: number;
+//   ageUnit: AgeUnit;
+//   // function call signature
+//   greet: GreetingFunction;
+// };
+// const person: Person = {
+//   name: "Scott",
+//   age: 30,
+//   ageUnit: AgeUnit.Years,
+//   greet: function (greeting) {
+//     return `${greeting} ${this.name}`;
+//   },
+// };
+// function convertAgeToMonths(person: Person): Person {
+//   if (person.ageUnit === AgeUnit.Years) {
+//     person.age = person.age * 12;
+//     person.ageUnit = AgeUnit.Months;
+//   }
+//   return person;
+// }
+// // console.log(convertAgeToMonths(person));
+// console.log(person.greet("Hello"));
+/////// anonymus function
+const students = ["Alice", "Bob", "Mark"];
+students.map((student) => {
+    console.log(student);
+});
