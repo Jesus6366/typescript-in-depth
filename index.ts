@@ -732,15 +732,35 @@
 
 // returnUser(2).then((res) => console.log(res));
 
-function multiplyBy(by: number, ...number: number[]): number[] {
-  return number.map((number: number) => number * by);
+// function multiplyBy(by: number, ...number: number[]): number[] {
+//   return number.map((number: number) => number * by);
+// }
+
+// console.log(multiplyBy(2, 3, 4, 5, 6));
+// console.log(multiplyBy(2, 2, 4, 6));
+
+// const args: [number, number] = [8, 5];
+// const args2 = [8, 5] as const;
+
+// const angle = Math.atan2(...args);
+// const angle2 = Math.atan2(...args2);
+
+/// destructuring
+
+type Numbers = {
+  a: number;
+  b: number;
+  c: number;
+};
+
+let numbers: Numbers = {
+  a: 2,
+  b: 3,
+  c: 4,
+};
+
+function sum({ a, b, c }: Numbers): number {
+  return a + b + c;
 }
 
-console.log(multiplyBy(2, 3, 4, 5, 6));
-console.log(multiplyBy(2, 2, 4, 6));
-
-const args: [number, number] = [8, 5];
-const args2 = [8, 5] as const;
-
-const angle = Math.atan2(...args);
-const angle2 = Math.atan2(...args2);
+console.log(sum(numbers));
