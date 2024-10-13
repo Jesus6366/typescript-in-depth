@@ -745,22 +745,80 @@
 // const angle = Math.atan2(...args);
 // const angle2 = Math.atan2(...args2);
 
-/// destructuring
+// /// destructuring
 
-type Numbers = {
-  a: number;
-  b: number;
-  c: number;
+// type Numbers = {
+//   a: number;
+//   b: number;
+//   c: number;
+// };
+
+// let numbers: Numbers = {
+//   a: 2,
+//   b: 3,
+//   c: 4,
+// };
+
+// function sum({ a, b, c }: Numbers): number {
+//   return a + b + c;
+// }
+
+// console.log(sum(numbers));
+
+///////////// Function overloading //////
+
+const str = "Hello, world";
+
+const part1 = str.slice(7);
+const part2 = str.slice(7, 10);
+
+console.log(part1);
+console.log(part2);
+
+type Reservation = {
+  departureDate: Date;
+  returnDate?: Date;
+  departingFrom: string;
+  destination: string;
 };
 
-let numbers: Numbers = {
-  a: 2,
-  b: 3,
-  c: 4,
+// function overloading
+type Reserve = {
+  (
+    departureDate: Date,
+    returnDate: Date,
+    departingFrom: string,
+    destination: string
+  ): Reservation | never;
+  (departureDate: Date, departingFrom: string, destination: string):
+    | Reservation
+    | never;
 };
 
-function sum({ a, b, c }: Numbers): number {
-  return a + b + c;
-}
+const reserve: Reserve = (
+  departureDate: Date,
+  returnDateOrdeartingFrom: Date | string,
+  departingFromOrDestination: string,
+  destination?: string
+) => {
+  if (returnDateOrdeartingFrom instanceof Date && destination) {
+    return {
+      departureDate: departureDate,
+      returnDate: returnDateOrdeartingFrom,
+      departingFrom: departingFromOrDestination,
+      destination: destination,
+    };
+  } else if (typeof returnDateOrdeartingFrom === "string") {
+    return {
+      departureDate: departureDate,
+      departingFrom: returnDateOrdeartingFrom,
+      destination: departingFromOrDestination,
+    };
+  }
 
-console.log(sum(numbers));
+  throw new Error("Please provie valid details to reserve a ticket");
+};
+
+console.log(reserve(new Date(), new Date(), "new york", "washingon"));
+
+console.log(reserve(new Date(), "new york", "washingon"));
