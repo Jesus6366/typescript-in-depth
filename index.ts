@@ -823,60 +823,86 @@
 
 // console.log(reserve(new Date(), "new york", "washingon"));
 
-/**
- * Practice Excercise for functions
- */
+// /**
+//  * Practice Excercise for functions
+//  */
 
-//* 1. Declare a function named greet that takes a string parameter name and returns a greeting message.
+// //* 1. Declare a function named greet that takes a string parameter name and returns a greeting message.
 
-function greet(name: string): string {
-  return `Hello ${name}`;
+// function greet(name: string): string {
+//   return `Hello ${name}`;
+// }
+
+// //* 2. Define an type Product with properties id (number) and name (string). Create a function named getProduct that takes an id parameter and returns a Product.
+
+// type Product = {
+//   id: number;
+//   name: string;
+// };
+
+// function getProduct(id: number): Product {
+//   const name = `Product ${id}`; // Just an example; you could fetch this from a database or other source
+
+//   return {
+//     id: id,
+//     name: name,
+//   };
+// }
+
+// //* 3. Declare a function signature named Calculator as a type that takes two numbers and returns a number. Implement two functions add and subtract that match this signature.
+
+// // function call signature
+// type Calculator = (n1: number, n2: number) => number;
+
+// // Implementing the add function
+// const add: Calculator = (n1: number, n2: number) => {
+//   return n1 + n2;
+// };
+
+// // Implementing the subtract function
+// const subtract: Calculator = (n1: number, n2: number) => {
+//   return n1 - n2;
+// };
+
+// // Example usage
+// const sum = add(5, 3); // Outputs: 8
+// const difference = subtract(5, 3); // Outputs: 2
+
+// console.log("Sum:", sum);
+// console.log("Difference:", difference);
+
+// //* 4. Create a function named logMessage that takes a string message and logs it to the console, returning void. Also, create a function named throwError that takes a string message and throws an error, returning never.
+
+// function logMessage(message: string): void {
+//   console.log(message);
+// }
+
+// function throwError(message: string): never {
+//   throw new Error(message);
+// }
+
+/////////// GENERICS /////////////
+
+// if the funcions is invoke with a string them the type will be string or number or watever the function is call with
+// generic function
+function returnParams<Type>(param: Type): Type {
+  return param;
 }
 
-//* 2. Define an type Product with properties id (number) and name (string). Create a function named getProduct that takes an id parameter and returns a Product.
+console.log(returnParams<string>("String"));
 
-type Product = {
-  id: number;
-  name: string;
-};
-
-function getProduct(id: number): Product {
-  const name = `Product ${id}`; // Just an example; you could fetch this from a database or other source
-
-  return {
-    id: id,
-    name: name,
-  };
-}
-
-//* 3. Declare a function signature named Calculator as a type that takes two numbers and returns a number. Implement two functions add and subtract that match this signature.
+console.log(returnParams<number>(123));
 
 // function call signature
-type Calculator = (n1: number, n2: number) => number;
+const myParam: <T>(param: T) => T = (param) => param;
 
-// Implementing the add function
-const add: Calculator = (n1: number, n2: number) => {
-  return n1 + n2;
+// function expression
+const myParam2 = function <U>(param: U): U {
+  return param;
 };
 
-// Implementing the subtract function
-const subtract: Calculator = (n1: number, n2: number) => {
-  return n1 - n2;
+type ObjectType = {
+  myParam: <V>(param: V) => V;
 };
 
-// Example usage
-const sum = add(5, 3); // Outputs: 8
-const difference = subtract(5, 3); // Outputs: 2
-
-console.log("Sum:", sum);
-console.log("Difference:", difference);
-
-//* 4. Create a function named logMessage that takes a string message and logs it to the console, returning void. Also, create a function named throwError that takes a string message and throws an error, returning never.
-
-function logMessage(message: string): void {
-  console.log(message);
-}
-
-function throwError(message: string): never {
-  throw new Error(message);
-}
+type MyParam = <K>(param: K) => K;
