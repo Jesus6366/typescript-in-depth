@@ -909,21 +909,37 @@
 
 //// generic function declaration ///////
 
-type GetFirstElement = <T>(arr: T[]) => T;
+// type GetFirstElement = <T>(arr: T[]) => T;
 
-const getFirstElement: GetFirstElement = (arr) => {
-  return arr[0];
-};
+// const getFirstElement: GetFirstElement = (arr) => {
+//   return arr[0];
+// };
 const numbersArray = [1, 2, 3, 4];
-const stringArray = ["a", "b"];
+// const stringArray = ["a", "b"];
 
-let numberOutput = getFirstElement(numbersArray);
+// let numberOutput = getFirstElement(numbersArray);
 
-let stringOutput = getFirstElement<string>(stringArray);
+// let stringOutput = getFirstElement<string>(stringArray);
 
-// having to pass the type
-type FirstElement<T> = (arr: T[]) => T;
+// // having to pass the type
+// type FirstElement<T> = (arr: T[]) => T;
 
-const firstElement: FirstElement<string> = (arr) => {
-  return arr[0];
+// const firstElement: FirstElement<string> = (arr) => {
+//   return arr[0];
+// };
+
+/////// generic and constrains with arrays/////////
+
+type hasLenth = {
+  length: number;
 };
+
+function LogLength<T extends hasLenth>(item: T): void {
+  console.log(item.length);
+}
+
+LogLength(numbersArray);
+LogLength("stringarray");
+// LogLength({});
+
+/////generics with objects
