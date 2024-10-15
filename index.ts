@@ -884,25 +884,46 @@
 /////////// GENERICS /////////////
 
 // if the funcions is invoke with a string them the type will be string or number or watever the function is call with
-// generic function
-function returnParams<Type>(param: Type): Type {
-  return param;
-}
+// // generic function
+// function returnParams<Type>(param: Type): Type {
+//   return param;
+// }
 
-console.log(returnParams<string>("String"));
+// console.log(returnParams<string>("String"));
 
-console.log(returnParams<number>(123));
+// console.log(returnParams<number>(123));
 
-// function call signature
-const myParam: <T>(param: T) => T = (param) => param;
+// // function call signature
+// const myParam: <T>(param: T) => T = (param) => param;
 
-// function expression
-const myParam2 = function <U>(param: U): U {
-  return param;
+// // function expression
+// const myParam2 = function <U>(param: U): U {
+//   return param;
+// };
+
+// type ObjectType = {
+//   myParam: <V>(param: V) => V;
+// };
+
+// type MyParam = <K>(param: K) => K;
+
+//// generic function declaration ///////
+
+type GetFirstElement = <T>(arr: T[]) => T;
+
+const getFirstElement: GetFirstElement = (arr) => {
+  return arr[0];
 };
+const numbersArray = [1, 2, 3, 4];
+const stringArray = ["a", "b"];
 
-type ObjectType = {
-  myParam: <V>(param: V) => V;
+let numberOutput = getFirstElement(numbersArray);
+
+let stringOutput = getFirstElement<string>(stringArray);
+
+// having to pass the type
+type FirstElement<T> = (arr: T[]) => T;
+
+const firstElement: FirstElement<string> = (arr) => {
+  return arr[0];
 };
-
-type MyParam = <K>(param: K) => K;
