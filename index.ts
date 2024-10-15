@@ -914,7 +914,7 @@
 // const getFirstElement: GetFirstElement = (arr) => {
 //   return arr[0];
 // };
-const numbersArray = [1, 2, 3, 4];
+// const numbersArray = [1, 2, 3, 4];
 // const stringArray = ["a", "b"];
 
 // let numberOutput = getFirstElement(numbersArray);
@@ -930,16 +930,46 @@ const numbersArray = [1, 2, 3, 4];
 
 /////// generic and constrains with arrays/////////
 
-type hasLenth = {
-  length: number;
-};
+// type hasLenth = {
+//   length: number;
+// };
 
-function LogLength<T extends hasLenth>(item: T): void {
-  console.log(item.length);
-}
+// function LogLength<T extends hasLenth>(item: T): void {
+//   console.log(item.length);
+// }
 
-LogLength(numbersArray);
-LogLength("stringarray");
-// LogLength({});
+// LogLength(numbersArray);
+// LogLength("stringarray");
+// // LogLength({});
 
 /////generics with objects
+
+type KeyValuePair<K, V> = {
+  key: K;
+  value: V;
+};
+
+let stringNumberPair: KeyValuePair<string, number> = {
+  key: "age",
+  value: 30,
+};
+
+let numberArrayPair: KeyValuePair<number, string[]> = {
+  key: 1234,
+  value: ["a"],
+};
+
+type HasId = {
+  id: number;
+};
+
+function printId<T extends { id: number }>(obj: T): void {
+  console.log(obj.id);
+}
+
+const user = {
+  id: 1234,
+  name: "Alice",
+};
+
+printId(user);
