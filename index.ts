@@ -976,23 +976,56 @@
 
 ///// keyof type operator /////////
 
-type Events = {
+// type Events = {
+//   id: number;
+//   date: Date;
+//   type: "indoor" | "outdoor";
+// };
+
+// // the keyof will generate a union among all the key values id | date | type
+// type UniorOfKeysOfEvents = keyof Events;
+
+// let idOfEvent: UniorOfKeysOfEvents = "id";
+
+// // index signature
+// type Numeric = {
+//   [key: number]: string;
+// };
+
+// type NumericKeyOf = keyof Numeric;
+
+// type NumberAndString = {
+//   [key: string]: string;
+// };
+
+//////// Generic default values //////////
+
+async function fethData<T = any>(url: string): Promise<T> {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+async function fetchDefault() {
+  const data = await fethData("https://jsonplaceholder.typicode.com/posts/1");
+  console.log(data);
+}
+
+fetchDefault();
+
+type Post = {
+  userId: number;
   id: number;
-  date: Date;
-  type: "indoor" | "outdoor";
+  title: string;
+  body: string;
 };
 
-type UniorOfKeysOfEvents = keyof Events;
+async function fetchPost() {
+  const post = await fethData<Post>(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
 
-let idOfEvent: UniorOfKeysOfEvents = "id";
+  console.log(post);
+}
 
-// index signature
-type Numeric = {
-  [key: number]: string;
-};
-
-type NumericKeyOf = keyof Numeric;
-
-type NumberAndString = {
-  [key: string]: string;
-};
+fetchPost();
