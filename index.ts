@@ -944,32 +944,55 @@
 
 /////generics with objects
 
-type KeyValuePair<K, V> = {
-  key: K;
-  value: V;
-};
+// type KeyValuePair<K, V> = {
+//   key: K;
+//   value: V;
+// };
 
-let stringNumberPair: KeyValuePair<string, number> = {
-  key: "age",
-  value: 30,
-};
+// let stringNumberPair: KeyValuePair<string, number> = {
+//   key: "age",
+//   value: 30,
+// };
 
-let numberArrayPair: KeyValuePair<number, string[]> = {
-  key: 1234,
-  value: ["a"],
-};
+// let numberArrayPair: KeyValuePair<number, string[]> = {
+//   key: 1234,
+//   value: ["a"],
+// };
 
-type HasId = {
+// type HasId = {
+//   id: number;
+// };
+
+// function printId<T extends { id: number }>(obj: T): void {
+//   console.log(obj.id);
+// }
+
+// const user = {
+//   id: 1234,
+//   name: "Alice",
+// };
+
+// printId(user);
+
+///// keyof type operator /////////
+
+type Events = {
   id: number;
+  date: Date;
+  type: "indoor" | "outdoor";
 };
 
-function printId<T extends { id: number }>(obj: T): void {
-  console.log(obj.id);
-}
+type UniorOfKeysOfEvents = keyof Events;
 
-const user = {
-  id: 1234,
-  name: "Alice",
+let idOfEvent: UniorOfKeysOfEvents = "id";
+
+// index signature
+type Numeric = {
+  [key: number]: string;
 };
 
-printId(user);
+type NumericKeyOf = keyof Numeric;
+
+type NumberAndString = {
+  [key: string]: string;
+};
