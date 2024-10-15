@@ -780,18 +780,40 @@
 //   [key: string]: string;
 // };
 //////// Generic default values //////////
-async function fethData(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+// async function fethData<T = any>(url: string): Promise<T> {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// }
+// async function fetchDefault() {
+//   const data = await fethData("https://jsonplaceholder.typicode.com/posts/1");
+//   console.log(data);
+// }
+// fetchDefault();
+// type Post = {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   body: string;
+// };
+// async function fetchPost() {
+//   const post = await fethData<Post>(
+//     "https://jsonplaceholder.typicode.com/posts/1"
+//   );
+//   console.log(post);
+// }
+// fetchPost();
+const filter = (array, predicate) => {
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+        if (predicate(array[i])) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+};
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function predicate(item) {
+    return item > 7;
 }
-async function fetchDefault() {
-    const data = await fethData("https://jsonplaceholder.typicode.com/posts/1");
-    console.log(data);
-}
-fetchDefault();
-async function fetchPost() {
-    const post = await fethData("https://jsonplaceholder.typicode.com/posts/1");
-    console.log(post);
-}
-fetchPost();
+console.log(filter(numbers, predicate));

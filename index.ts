@@ -1000,32 +1000,50 @@
 
 //////// Generic default values //////////
 
-async function fethData<T = any>(url: string): Promise<T> {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
+// async function fethData<T = any>(url: string): Promise<T> {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// }
 
-async function fetchDefault() {
-  const data = await fethData("https://jsonplaceholder.typicode.com/posts/1");
-  console.log(data);
-}
+// async function fetchDefault() {
+//   const data = await fethData("https://jsonplaceholder.typicode.com/posts/1");
+//   console.log(data);
+// }
 
-fetchDefault();
+// fetchDefault();
 
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+// type Post = {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   body: string;
+// };
+
+// async function fetchPost() {
+//   const post = await fethData<Post>(
+//     "https://jsonplaceholder.typicode.com/posts/1"
+//   );
+
+//   console.log(post);
+// }
+
+// fetchPost();
+
+const filter = (array: any[], predicate: (item: any) => boolean) => {
+  let result: any[] = [];
+  for (let i = 0; i < array.length; i++) {
+    if (predicate(array[i])) {
+      result.push(array[i]);
+    }
+  }
+  return result;
 };
 
-async function fetchPost() {
-  const post = await fethData<Post>(
-    "https://jsonplaceholder.typicode.com/posts/1"
-  );
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  console.log(post);
+function predicate(item: number) {
+  return item > 7;
 }
 
-fetchPost();
+console.log(filter(numbers, predicate));
