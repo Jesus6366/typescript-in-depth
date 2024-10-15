@@ -803,17 +803,30 @@
 //   console.log(post);
 // }
 // fetchPost();
-const filter = (array, predicate) => {
-    let result = [];
-    for (let i = 0; i < array.length; i++) {
-        if (predicate(array[i])) {
-            result.push(array[i]);
-        }
+// const filter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
+//   let result: T[] = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (predicate(array[i])) {
+//       result.push(array[i]);
+//     }
+//   }
+//   return result;
+// };
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// function predicate(item: number) {
+//   return item > 7;
+// }
+// console.log(filter(numbers, predicate));
+/////////////CLASSES ///////////////////
+class User {
+    constructor() {
+        this.name = "John";
+        this.email = "john@email.com";
     }
-    return result;
-};
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-function predicate(item) {
-    return item > 7;
+    greet() {
+        return `Hello John`;
+    }
 }
-console.log(filter(numbers, predicate));
+const user = new User();
+console.log(user);
+console.log(user.greet());

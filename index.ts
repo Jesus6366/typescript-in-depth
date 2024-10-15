@@ -1030,20 +1030,35 @@
 
 // fetchPost();
 
-const filter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
-  let result: T[] = [];
-  for (let i = 0; i < array.length; i++) {
-    if (predicate(array[i])) {
-      result.push(array[i]);
-    }
+// const filter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
+//   let result: T[] = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (predicate(array[i])) {
+//       result.push(array[i]);
+//     }
+//   }
+//   return result;
+// };
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// function predicate(item: number) {
+//   return item > 7;
+// }
+
+// console.log(filter(numbers, predicate));
+
+/////////////CLASSES ///////////////////
+
+class User {
+  name = "John";
+  email = "john@email.com";
+
+  greet() {
+    return `Hello John`;
   }
-  return result;
-};
-
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-function predicate(item: number) {
-  return item > 7;
 }
 
-console.log(filter(numbers, predicate));
+const user = new User();
+console.log(user);
+console.log(user.greet());
