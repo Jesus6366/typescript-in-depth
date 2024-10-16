@@ -840,6 +840,7 @@ class User {
         return `Hello ${this.name}`;
     }
 }
+// classes work as types
 const user = new User("Jesus", "email");
 const user2 = new User("Mark", "email2");
 console.log(user);

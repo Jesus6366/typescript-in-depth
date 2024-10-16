@@ -1080,8 +1080,9 @@ class User {
   }
 }
 
-const user = new User("Jesus", "email");
-const user2 = new User("Mark", "email2");
+// classes work as types
+const user: User = new User("Jesus", "email");
+const user2: User = new User("Mark", "email2");
 
 console.log(user);
 console.log(user.greet());
