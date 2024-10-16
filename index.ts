@@ -1119,67 +1119,67 @@ console.log(admin);
 //  * TODO: 2. Define a constructor function to initialize the Book class with title, author,yearPublished, and ISBN.
 //  *
 //  * TODO: 3. Ensure that the constructor function uses the this keyword to assign values to the class properties.
-class Book {
-  title: string;
-  author: string;
-  yearPublished?: number;
-  readonly ISBN: string;
+// class Book {
+//   title: string;
+//   author: string;
+//   yearPublished?: number;
+//   readonly ISBN: string;
 
-  constructor(
-    title: string,
-    author: string,
-    ISBN: string,
-    yearPublised?: number
-  ) {
-    this.title = title;
-    this.ISBN = ISBN;
-    this.author = author;
-    if (yearPublised) {
-      this.yearPublished = yearPublised;
-    }
-  }
-}
-//  *
-//  * TODO: 4. Create an instance of the Book class and log its details.
+//   constructor(
+//     title: string,
+//     author: string,
+//     ISBN: string,
+//     yearPublised?: number
+//   ) {
+//     this.title = title;
+//     this.ISBN = ISBN;
+//     this.author = author;
+//     if (yearPublised) {
+//       this.yearPublished = yearPublised;
+//     }
+//   }
+// }
+// //  *
+// //  * TODO: 4. Create an instance of the Book class and log its details.
 
-const book = new Book("The grat Gatsby", "F. Scott", "34554645656", 1925);
-console.log(book);
+// const book = new Book("The grat Gatsby", "F. Scott", "34554645656", 1925);
+// console.log(book);
 
-//  *
-//  * TODO: 5. Create a function logBookDetails that takes an instance of Book as a parameter and logs its details.
-//  *
-function logBookDetails(book: Book): void {
-  console.log(book);
-}
+// //  *
+// //  * TODO: 5. Create a function logBookDetails that takes an instance of Book as a parameter and logs its details.
+// //  *
+// function logBookDetails(book: Book): void {
+//   console.log(book);
+// }
 
-logBookDetails(book);
-//  * TODO: 6. Create a subclass EBook that extends the Book class. Add the following properties:
-//  * * - fileSize (number, required)
-//  * * - format (string, required)
+// logBookDetails(book);
+// //  * TODO: 6. Create a subclass EBook that extends the Book class. Add the following properties:
+// //  * * - fileSize (number, required)
+// //  * * - format (string, required)
 
-class EBook extends Book {
-  fileSize: number;
-  format: string;
+// class EBook extends Book {
+//   fileSize: number;
+//   format: string;
 
-  constructor(
-    title: string,
-    author: string,
-    ISBN: string,
-    fileSize: number,
-    format: string,
-    yearPublised?: number
-  ) {
-    super(title, author, ISBN, yearPublised);
+//   constructor(
+//     title: string,
+//     author: string,
+//     ISBN: string,
+//     fileSize: number,
+//     format: string,
+//     yearPublised?: number
+//   ) {
+//     super(title, author, ISBN, yearPublised);
 
-    this.fileSize = fileSize;
-    this.format = format;
-  }
-}
-//  *
-//  * TODO:7. Use the super method to call the constructor of the parent class Book from the EBook class.
-//  *
-//  * TODO: 8. Ensure that the yearPublished property in the Book class is optional and the ISBN property is readonly.
+//     this.fileSize = fileSize;
+//     this.format = format;
+//   }
+// }
+// //  *
+// //  * TODO:7. Use the super method to call the constructor of the parent class Book from the EBook class.
+// //  *
+// //  * TODO: 8. Ensure that the yearPublished property in the Book class is optional and the ISBN property is readonly.
 
-const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
+// const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
 
-console.log(firstEbook);
+// console.log(firstEbook);
