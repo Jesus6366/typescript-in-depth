@@ -832,9 +832,10 @@
 // console.log(user.greet());
 /////////////Constructor function////////
 class User {
-    constructor(name, email) {
+    constructor(name, email, lastname) {
         this.name = name;
         this.email = email;
+        this.lastname = lastname;
     }
     greet() {
         return `Hello ${this.name}`;
@@ -843,7 +844,9 @@ class User {
 // classes work as types
 const user = new User("Jesus", "email");
 const user2 = new User("Mark", "email2");
+const user3 = new User("Alice", "email2", "Doe");
 console.log(user);
 console.log(user.greet());
 console.log(user2);
 console.log(user2.greet());
+console.log(user3);

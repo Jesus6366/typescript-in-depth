@@ -1068,11 +1068,13 @@
 
 class User {
   name: string;
-  email: string;
+  readonly email: string;
+  lastname?: string;
 
-  constructor(name: string, email: string) {
+  constructor(name: string, email: string, lastname?: string) {
     this.name = name;
     this.email = email;
+    this.lastname = lastname;
   }
 
   greet() {
@@ -1083,9 +1085,12 @@ class User {
 // classes work as types
 const user: User = new User("Jesus", "email");
 const user2: User = new User("Mark", "email2");
+const user3: User = new User("Alice", "email2", "Doe");
 
 console.log(user);
 console.log(user.greet());
 
 console.log(user2);
 console.log(user2.greet());
+
+console.log(user3);
