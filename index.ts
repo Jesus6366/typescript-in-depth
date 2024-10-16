@@ -1086,12 +1086,23 @@ class User {
 
 class Admin extends User {
   isAdmin: boolean = true;
+  usersReporting: number;
+
+  constructor(
+    name: string,
+    email: string,
+    usersReporting: number,
+    lastname?: string
+  ) {
+    super(name, email, lastname);
+    this.usersReporting = usersReporting;
+  }
 }
 
 // classes work as types
 const user: User = new User("Jesus", "email");
 
-const admin: Admin = new Admin("Mark", "admin@email.com");
+const admin: Admin = new Admin("Mark", "admin@email.com", 11);
 
 console.log(user);
 console.log(admin);
