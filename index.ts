@@ -1082,15 +1082,16 @@ class User {
   }
 }
 
+////////// inheritance /////////////
+
+class Admin extends User {
+  isAdmin: boolean = true;
+}
+
 // classes work as types
 const user: User = new User("Jesus", "email");
-const user2: User = new User("Mark", "email2");
-const user3: User = new User("Alice", "email2", "Doe");
+
+const admin: Admin = new Admin("Mark", "admin@email.com");
 
 console.log(user);
-console.log(user.greet());
-
-console.log(user2);
-console.log(user2.greet());
-
-console.log(user3);
+console.log(admin);

@@ -841,12 +841,15 @@ class User {
         return `Hello ${this.name}`;
     }
 }
+////////// inheritance /////////////
+class Admin extends User {
+    constructor() {
+        super(...arguments);
+        this.isAdmin = true;
+    }
+}
 // classes work as types
 const user = new User("Jesus", "email");
-const user2 = new User("Mark", "email2");
-const user3 = new User("Alice", "email2", "Doe");
+const admin = new Admin("Mark", "admin@email.com");
 console.log(user);
-console.log(user.greet());
-console.log(user2);
-console.log(user2.greet());
-console.log(user3);
+console.log(admin);
