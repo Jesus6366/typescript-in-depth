@@ -1181,5 +1181,3 @@ console.log(admin);
 // //  * TODO: 8. Ensure that the yearPublished property in the Book class is optional and the ISBN property is readonly.
 
 // const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
-
-// console.log(firstEbook);
