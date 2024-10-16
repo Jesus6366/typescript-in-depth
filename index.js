@@ -818,15 +818,31 @@
 // }
 // console.log(filter(numbers, predicate));
 /////////////CLASSES ///////////////////
+// // first class
+// class User {
+//   name = "John";
+//   email = "john@email.com";
+//   greet() {
+//     return `Hello John`;
+//   }
+// }
+// // new instance (always the same one)
+// const user = new User();
+// console.log(user);
+// console.log(user.greet());
+/////////////Constructor function////////
 class User {
-    constructor() {
-        this.name = "John";
-        this.email = "john@email.com";
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
     }
     greet() {
-        return `Hello John`;
+        return `Hello ${this.name}`;
     }
 }
-const user = new User();
+const user = new User("jesus", "email");
+const user2 = new User("Mark", "email2");
 console.log(user);
 console.log(user.greet());
+console.log(user2);
+console.log(user2.greet());
