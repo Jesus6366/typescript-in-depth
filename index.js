@@ -840,7 +840,7 @@ class User {
         return `Hello ${this.name}`;
     }
 }
-const user = new User("jesus", "email");
+const user = new User("Jesus", "email");
 const user2 = new User("Mark", "email2");
 console.log(user);
 console.log(user.greet());

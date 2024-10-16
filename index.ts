@@ -1067,7 +1067,6 @@
 /////////////Constructor function////////
 
 class User {
-  // Declare properties
   name: string;
   email: string;
 
@@ -1081,7 +1080,7 @@ class User {
   }
 }
 
-const user = new User("jesus", "email");
+const user = new User("Jesus", "email");
 const user2 = new User("Mark", "email2");
 
 console.log(user);
