@@ -1101,6 +1101,7 @@ class Admin extends User {
 
 // classes work as types
 const user: User = new User("Jesus", "email");
+const user2: User = new User("Jose", "Jose@email.com");
 
 const admin: Admin = new Admin("Mark", "admin@email.com", 11);
 
