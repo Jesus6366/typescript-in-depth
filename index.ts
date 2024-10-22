@@ -1066,47 +1066,47 @@
 
 /////////////Constructor function////////
 
-class User {
-  name: string;
-  readonly email: string;
-  lastname?: string;
+// class User {
+//   name: string;
+//   readonly email: string;
+//   lastname?: string;
 
-  constructor(name: string, email: string, lastname?: string) {
-    this.name = name;
-    this.email = email;
-    this.lastname = lastname;
-  }
+//   constructor(name: string, email: string, lastname?: string) {
+//     this.name = name;
+//     this.email = email;
+//     this.lastname = lastname;
+//   }
 
-  greet() {
-    return `Hello ${this.name}`;
-  }
-}
+//   greet() {
+//     return `Hello ${this.name}`;
+//   }
+// }
 
-////////// inheritance /////////////
+// ////////// inheritance /////////////
 
-class Admin extends User {
-  isAdmin: boolean = true;
-  usersReporting: number;
+// class Admin extends User {
+//   isAdmin: boolean = true;
+//   usersReporting: number;
 
-  constructor(
-    name: string,
-    email: string,
-    usersReporting: number,
-    lastname?: string
-  ) {
-    super(name, email, lastname);
-    this.usersReporting = usersReporting;
-  }
-}
+//   constructor(
+//     name: string,
+//     email: string,
+//     usersReporting: number,
+//     lastname?: string
+//   ) {
+//     super(name, email, lastname);
+//     this.usersReporting = usersReporting;
+//   }
+// }
 
-// classes work as types
-const user: User = new User("Jesus", "email");
-const user2: User = new User("Jose", "Jose@email.com");
+// // classes work as types
+// const user: User = new User("Jesus", "email");
+// const user2: User = new User("Jose", "Jose@email.com");
 
-const admin: Admin = new Admin("Mark", "admin@email.com", 11);
+// const admin: Admin = new Admin("Mark", "admin@email.com", 11);
 
-console.log(user);
-console.log(admin);
+// console.log(user);
+// console.log(admin);
 
 //  * * Practice Problem
 //  * * You are building a simple library management system.
@@ -1182,3 +1182,59 @@ console.log(admin);
 // //  * TODO: 8. Ensure that the yearPublished property in the Book class is optional and the ISBN property is readonly.
 
 // const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
+
+////////// ACCESS MODIFIERS ///////////
+///----------PUBLIC ACCESS MODIFIERS-----//
+
+class User {
+  public name: string;
+  readonly email: string;
+  lastname?: string;
+  protected phone: number;
+
+  constructor(name: string, email: string, phone: number, lastname?: string) {
+    this.name = name;
+    this.email = email;
+    this.lastname = lastname;
+    this.phone = phone;
+  }
+
+  public greet() {
+    return `Hello ${this.name}`;
+  }
+}
+
+////////// inheritance /////////////
+
+class Admin extends User {
+  isAdmin: boolean = true;
+  usersReporting: number;
+
+  constructor(
+    name: string,
+    email: string,
+    usersReporting: number,
+    phone: number,
+    lastname?: string
+  ) {
+    super(name, email, phone, lastname);
+    this.usersReporting = usersReporting;
+  }
+
+  public printName() {
+    console.log(this.name);
+  }
+
+  protected printNumber() {
+    console.log(this.phone);
+  }
+}
+
+// classes work as types
+const user: User = new User("Jesus", "email", 123456);
+const user2: User = new User("Jose", "Jose@email.com", 4566556);
+
+const admin: Admin = new Admin("Mark", "admin@email.com", 654654456, 11);
+
+//console.log(user.phone);
+admin.printName();

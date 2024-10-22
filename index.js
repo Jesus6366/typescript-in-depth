@@ -831,29 +831,39 @@
 // console.log(user);
 // console.log(user.greet());
 /////////////Constructor function////////
-class User {
-    constructor(name, email, lastname) {
-        this.name = name;
-        this.email = email;
-        this.lastname = lastname;
-    }
-    greet() {
-        return `Hello ${this.name}`;
-    }
-}
-////////// inheritance /////////////
-class Admin extends User {
-    constructor(name, email, usersReporting, lastname) {
-        super(name, email, lastname);
-        this.isAdmin = true;
-        this.usersReporting = usersReporting;
-    }
-}
-// classes work as types
-const user = new User("Jesus", "email");
-const admin = new Admin("Mark", "admin@email.com", 11);
-console.log(user);
-console.log(admin);
+// class User {
+//   name: string;
+//   readonly email: string;
+//   lastname?: string;
+//   constructor(name: string, email: string, lastname?: string) {
+//     this.name = name;
+//     this.email = email;
+//     this.lastname = lastname;
+//   }
+//   greet() {
+//     return `Hello ${this.name}`;
+//   }
+// }
+// ////////// inheritance /////////////
+// class Admin extends User {
+//   isAdmin: boolean = true;
+//   usersReporting: number;
+//   constructor(
+//     name: string,
+//     email: string,
+//     usersReporting: number,
+//     lastname?: string
+//   ) {
+//     super(name, email, lastname);
+//     this.usersReporting = usersReporting;
+//   }
+// }
+// // classes work as types
+// const user: User = new User("Jesus", "email");
+// const user2: User = new User("Jose", "Jose@email.com");
+// const admin: Admin = new Admin("Mark", "admin@email.com", 11);
+// console.log(user);
+// console.log(admin);
 //  * * Practice Problem
 //  * * You are building a simple library management system.
 //  * * Implement the following requirements using TypeScript:
@@ -920,3 +930,36 @@ console.log(admin);
 // //  *
 // //  * TODO: 8. Ensure that the yearPublished property in the Book class is optional and the ISBN property is readonly.
 // const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
+////////// ACCESS MODIFIERS ///////////
+///----------PUBLIC ACCESS MODIFIERS-----//
+class User {
+    constructor(name, email, phone, lastname) {
+        this.name = name;
+        this.email = email;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
+    greet() {
+        return `Hello ${this.name}`;
+    }
+}
+////////// inheritance /////////////
+class Admin extends User {
+    constructor(name, email, usersReporting, phone, lastname) {
+        super(name, email, phone, lastname);
+        this.isAdmin = true;
+        this.usersReporting = usersReporting;
+    }
+    printName() {
+        console.log(this.name);
+    }
+    printNumber() {
+        console.log(this.phone);
+    }
+}
+// classes work as types
+const user = new User("Jesus", "email", 123456);
+const user2 = new User("Jose", "Jose@email.com", 4566556);
+const admin = new Admin("Mark", "admin@email.com", 654654456, 11);
+//console.log(user.phone);
+admin.printName();
