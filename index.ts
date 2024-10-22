@@ -1228,13 +1228,17 @@ class Admin extends User {
   protected printNumber() {
     console.log(this.phone);
   }
+
+  public useProtectedPhone() {
+    this.printNumber();
+  }
 }
 
 // classes work as types
 const user: User = new User("Jesus", "email", 123456);
 const user2: User = new User("Jose", "Jose@email.com", 4566556);
 
-const admin: Admin = new Admin("Mark", "admin@email.com", 654654456, 11);
+const admin: Admin = new Admin("Mark", "admin@email.com", 11, 654654456);
 
 //console.log(user.phone);
-admin.printName();
+admin.useProtectedPhone();
