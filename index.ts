@@ -1285,11 +1285,21 @@
 
 /////----------static members----------/////
 
+function loadInitialCount(): number {
+  return 10;
+}
+
 class Counter {
   static count = 0;
 
   static increment() {
     Counter.count++;
+  }
+
+  // static block
+  static {
+    console.log("initializing counter class");
+    Counter.count = loadInitialCount();
   }
 }
 console.log(Counter.count);

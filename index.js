@@ -1008,12 +1008,20 @@
 // console.log(john.age);
 // console.log(john.fullName);
 /////----------static members----------/////
+function loadInitialCount() {
+    return 10;
+}
 class Counter {
     static increment() {
         Counter.count++;
     }
 }
 Counter.count = 0;
+// static block
+(() => {
+    console.log("initializing counter class");
+    Counter.count = loadInitialCount();
+})();
 console.log(Counter.count);
 Counter.increment();
 console.log(Counter.count);
