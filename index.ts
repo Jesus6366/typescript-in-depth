@@ -1199,12 +1199,8 @@ class User {
     this.phone = phone;
   }
 
-  public greet() {
+  public greet(): string {
     return `Hello ${this.name}`;
-  }
-
-  public printPhone() {
-    console.log(this.phone);
   }
 }
 
@@ -1225,25 +1221,20 @@ class Admin extends User {
     this.usersReporting = usersReporting;
   }
 
-  public printName() {
-    console.log(this.name);
+  public greet(): string {
+    return `Hello ${this.name}! I am the admin `;
   }
-
-  // protected printNumber() {
-  //   console.log(this.phone);
-  // }
-
-  // public useProtectedPhone() {
-  //   this.printNumber();
-  // }
 }
 
 // classes work as types
 const user: User = new User("Jesus", "email", 123456);
-const user2: User = new User("Jose", "Jose@email.com", 4566556);
+// const user2: User = new User("Jose", "Jose@email.com", 4566556);
 
 const admin: Admin = new Admin("Mark", "admin@email.com", 11, 654654456);
 
+console.log(user.greet());
+console.log(admin.greet());
+
 //console.log(user.phone);
 // admin.useProtectedPhone();
-console.log(user.printPhone());
+// console.log(user.printPhone());
