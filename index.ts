@@ -1241,40 +1241,57 @@
 
 //////--------More Control over classes-----//////
 
-/////// mutators ///////////
+// /////// mutators ///////////
 
-class Person {
-  public firstName: string;
-  public lastName: string;
-  private _age?: number;
+// class Person {
+//   public firstName: string;
+//   public lastName: string;
+//   private _age?: number;
 
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+//   constructor(firstName: string, lastName: string) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
 
-  public set age(age: number) {
-    if (age > 200 || age < 0) {
-      throw new Error("The age must be within age range 0 - 150 ");
-    }
-    this._age = age;
-  }
+/// setter
 
-  public get age() {
-    if (this._age === undefined) {
-      throw new Error("The age property is not defined");
-    }
-    return this._age;
-  }
+//   public set age(age: number) {
+//     if (age > 200 || age < 0) {
+//       throw new Error("The age must be within age range 0 - 150 ");
+//     }
+//     this._age = age;
+//   }
 
-  public get fullName() {
-    return `${this.firstName} ${this.lastName}`;
+// getter
+
+//   public get age() {
+//     if (this._age === undefined) {
+//       throw new Error("The age property is not defined");
+//     }
+//     return this._age;
+//   }
+
+//   public get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+// }
+
+// const john: Person = new Person("John", "Doe");
+// const mark: Person = new Person("Mark", "Doe");
+// john.age = 45;
+// console.log(john.age);
+
+// console.log(john.fullName);
+
+/////----------static members----------/////
+
+class Counter {
+  static count = 0;
+
+  static increment() {
+    Counter.count++;
   }
 }
-
-const john: Person = new Person("John", "Doe");
-const mark: Person = new Person("Mark", "Doe");
-john.age = 45;
-console.log(john.age);
-
-console.log(john.fullName);
+console.log(Counter.count);
+Counter.increment();
+console.log(Counter.count);

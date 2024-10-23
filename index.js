@@ -975,30 +975,45 @@
 // admin.useProtectedPhone();
 // console.log(user.printPhone());
 //////--------More Control over classes-----//////
-/////// mutators ///////////
-class Person {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-    set age(age) {
-        if (age > 200 || age < 0) {
-            throw new Error("The age must be within age range 0 - 150 ");
-        }
-        this._age = age;
-    }
-    get age() {
-        if (this._age === undefined) {
-            throw new Error("The age property is not defined");
-        }
-        return this._age;
-    }
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
+// /////// mutators ///////////
+// class Person {
+//   public firstName: string;
+//   public lastName: string;
+//   private _age?: number;
+//   constructor(firstName: string, lastName: string) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+/// setter
+//   public set age(age: number) {
+//     if (age > 200 || age < 0) {
+//       throw new Error("The age must be within age range 0 - 150 ");
+//     }
+//     this._age = age;
+//   }
+// getter
+//   public get age() {
+//     if (this._age === undefined) {
+//       throw new Error("The age property is not defined");
+//     }
+//     return this._age;
+//   }
+//   public get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+// }
+// const john: Person = new Person("John", "Doe");
+// const mark: Person = new Person("Mark", "Doe");
+// john.age = 45;
+// console.log(john.age);
+// console.log(john.fullName);
+/////----------static members----------/////
+class Counter {
+    static increment() {
+        Counter.count++;
     }
 }
-const john = new Person("John", "Doe");
-const mark = new Person("Mark", "Doe");
-john.age = 45;
-console.log(john.age);
-console.log(john.fullName);
+Counter.count = 0;
+console.log(Counter.count);
+Counter.increment();
+console.log(Counter.count);
