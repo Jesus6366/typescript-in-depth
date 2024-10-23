@@ -1241,19 +1241,23 @@
 
 //////--------More Control over classes-----//////
 
+/////// mutators ///////////
+
 class Person {
   public firstName: string;
   public lastName: string;
-  public age: number;
+  private _age?: number;
 
-  constructor(firstName: string, lastName: string, age: number) {
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age;
+  }
 
+  public set age(age: number) {
     if (age > 200 || age < 0) {
-      throw new Error("The age must be within age range ");
+      throw new Error("The age must be within age range 0 - 150 ");
     }
+    this._age = age;
   }
 
   public fullName() {
@@ -1261,7 +1265,8 @@ class Person {
   }
 }
 
-const john: Person = new Person("John", "Doe", 45);
-const mark: Person = new Person("Mark", "Doe", 20);
+const john: Person = new Person("John", "Doe");
+const mark: Person = new Person("Mark", "Doe");
+john.age = -45;
 
 console.log(john.fullName());

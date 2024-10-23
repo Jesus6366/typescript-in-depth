@@ -975,19 +975,23 @@
 // admin.useProtectedPhone();
 // console.log(user.printPhone());
 //////--------More Control over classes-----//////
+/////// mutators ///////////
 class Person {
-    constructor(firstName, lastName, age) {
+    constructor(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+    }
+    set age(age) {
         if (age > 200 || age < 0) {
-            throw new Error("The age must be within age range ");
+            throw new Error("The age must be within age range 0 - 150 ");
         }
+        this._age = age;
     }
     fullName() {
         return `${this.firstName} ${this.lastName}`;
     }
 }
-const john = new Person("John", "Doe", 45);
-const mark = new Person("Mark", "Doe", 20);
+const john = new Person("John", "Doe");
+const mark = new Person("Mark", "Doe");
+john.age = -45;
 console.log(john.fullName());
