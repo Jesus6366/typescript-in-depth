@@ -1008,20 +1008,33 @@
 // console.log(john.age);
 // console.log(john.fullName);
 /////----------static members----------/////
-function loadInitialCount() {
-    return 10;
-}
-class Counter {
-    static increment() {
-        Counter.count++;
+// function loadInitialCount(): number {
+//   return 10;
+// }
+// class Counter {
+//   static count = 0;
+//   static increment() {
+//     Counter.count++;
+//   }
+//   // static block
+//   static {
+//     console.log("initializing counter class");
+//     Counter.count = loadInitialCount();
+//   }
+// }
+// console.log(Counter.count);
+// Counter.increment();
+// console.log(Counter.count);
+///// Generics with classes /////
+class Box {
+    constructor(value) {
+        this._value = value;
+    }
+    get value() {
+        return this._value;
+    }
+    set value(newValue) {
+        this._value = newValue;
     }
 }
-Counter.count = 0;
-// static block
-(() => {
-    console.log("initializing counter class");
-    Counter.count = loadInitialCount();
-})();
-console.log(Counter.count);
-Counter.increment();
-console.log(Counter.count);
+const numberBox = new Box(123);

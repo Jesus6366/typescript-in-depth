@@ -1285,23 +1285,42 @@
 
 /////----------static members----------/////
 
-function loadInitialCount(): number {
-  return 10;
-}
+// function loadInitialCount(): number {
+//   return 10;
+// }
 
-class Counter {
-  static count = 0;
+// class Counter {
+//   static count = 0;
 
-  static increment() {
-    Counter.count++;
+//   static increment() {
+//     Counter.count++;
+//   }
+
+//   // static block
+//   static {
+//     console.log("initializing counter class");
+//     Counter.count = loadInitialCount();
+//   }
+// }
+// console.log(Counter.count);
+// Counter.increment();
+// console.log(Counter.count);
+
+///// Generics with classes /////
+
+class Box<T> {
+  private _value: T;
+  constructor(value: T) {
+    this._value = value;
   }
 
-  // static block
-  static {
-    console.log("initializing counter class");
-    Counter.count = loadInitialCount();
+  get value(): T {
+    return this._value;
+  }
+
+  set value(newValue: T) {
+    this._value = newValue;
   }
 }
-console.log(Counter.count);
-Counter.increment();
-console.log(Counter.count);
+
+const numberBox = new Box(123);
