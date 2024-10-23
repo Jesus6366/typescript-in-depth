@@ -942,6 +942,9 @@ class User {
     greet() {
         return `Hello ${this.name}`;
     }
+    printPhone() {
+        console.log(this.phone);
+    }
 }
 ////////// inheritance /////////////
 class Admin extends User {
@@ -953,16 +956,11 @@ class Admin extends User {
     printName() {
         console.log(this.name);
     }
-    printNumber() {
-        console.log(this.phone);
-    }
-    useProtectedPhone() {
-        this.printNumber();
-    }
 }
 // classes work as types
 const user = new User("Jesus", "email", 123456);
 const user2 = new User("Jose", "Jose@email.com", 4566556);
 const admin = new Admin("Mark", "admin@email.com", 11, 654654456);
 //console.log(user.phone);
-admin.useProtectedPhone();
+// admin.useProtectedPhone();
+console.log(user.printPhone());

@@ -1190,7 +1190,7 @@ class User {
   public name: string;
   readonly email: string;
   lastname?: string;
-  protected phone: number;
+  private phone: number;
 
   constructor(name: string, email: string, phone: number, lastname?: string) {
     this.name = name;
@@ -1201,6 +1201,10 @@ class User {
 
   public greet() {
     return `Hello ${this.name}`;
+  }
+
+  public printPhone() {
+    console.log(this.phone);
   }
 }
 
@@ -1225,13 +1229,13 @@ class Admin extends User {
     console.log(this.name);
   }
 
-  protected printNumber() {
-    console.log(this.phone);
-  }
+  // protected printNumber() {
+  //   console.log(this.phone);
+  // }
 
-  public useProtectedPhone() {
-    this.printNumber();
-  }
+  // public useProtectedPhone() {
+  //   this.printNumber();
+  // }
 }
 
 // classes work as types
@@ -1241,4 +1245,5 @@ const user2: User = new User("Jose", "Jose@email.com", 4566556);
 const admin: Admin = new Admin("Mark", "admin@email.com", 11, 654654456);
 
 //console.log(user.phone);
-admin.useProtectedPhone();
+// admin.useProtectedPhone();
+console.log(user.printPhone());
