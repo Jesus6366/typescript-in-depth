@@ -932,34 +932,62 @@
 // const firstEbook = new EBook("The book", "jesus", "46545645646", 2, "PDF");
 ////////// ACCESS MODIFIERS ///////////
 ///----------PUBLIC ACCESS MODIFIERS-----//
-class User {
-    constructor(name, email, phone, lastname) {
-        this.name = name;
-        this.email = email;
-        this.lastname = lastname;
-        this.phone = phone;
-    }
-    greet() {
-        return `Hello ${this.name}`;
-    }
-}
-////////// inheritance /////////////
-class Admin extends User {
-    constructor(name, email, usersReporting, phone, lastname) {
-        super(name, email, phone, lastname);
-        this.isAdmin = true;
-        this.usersReporting = usersReporting;
-    }
-    greet() {
-        return `Hello ${this.name}! I am the admin `;
-    }
-}
-// classes work as types
-const user = new User("Jesus", "email", 123456);
-// const user2: User = new User("Jose", "Jose@email.com", 4566556);
-const admin = new Admin("Mark", "admin@email.com", 11, 654654456);
-console.log(user.greet());
-console.log(admin.greet());
+// class User {
+//   public name: string;
+//   readonly email: string;
+//   lastname?: string;
+//   private phone: number;
+//   constructor(name: string, email: string, phone: number, lastname?: string) {
+//     this.name = name;
+//     this.email = email;
+//     this.lastname = lastname;
+//     this.phone = phone;
+//   }
+//   public greet(): string {
+//     return `Hello ${this.name}`;
+//   }
+// }
+// ////////// inheritance /////////////
+// class Admin extends User {
+//   isAdmin: boolean = true;
+//   usersReporting: number;
+//   constructor(
+//     name: string,
+//     email: string,
+//     usersReporting: number,
+//     phone: number,
+//     lastname?: string
+//   ) {
+//     super(name, email, phone, lastname);
+//     this.usersReporting = usersReporting;
+//   }
+//   public greet(): string {
+//     return `Hello ${this.name}! I am the admin `;
+//   }
+// }
+// // classes work as types
+// const user: User = new User("Jesus", "email", 123456);
+// // const user2: User = new User("Jose", "Jose@email.com", 4566556);
+// const admin: Admin = new Admin("Mark", "admin@email.com", 11, 654654456);
+// console.log(user.greet());
+// console.log(admin.greet());
 //console.log(user.phone);
 // admin.useProtectedPhone();
 // console.log(user.printPhone());
+//////--------More Control over classes-----//////
+class Person {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        if (age > 200 || age < 0) {
+            throw new Error("The age must be within age range ");
+        }
+    }
+    fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+const john = new Person("John", "Doe", 45);
+const mark = new Person("Mark", "Doe", 20);
+console.log(john.fullName());
