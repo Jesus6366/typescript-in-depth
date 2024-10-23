@@ -1260,13 +1260,21 @@ class Person {
     this._age = age;
   }
 
-  public fullName() {
+  public get age() {
+    if (this._age === undefined) {
+      throw new Error("The age property is not defined");
+    }
+    return this._age;
+  }
+
+  public get fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
 }
 
 const john: Person = new Person("John", "Doe");
 const mark: Person = new Person("Mark", "Doe");
-john.age = -45;
+john.age = 45;
+console.log(john.age);
 
-console.log(john.fullName());
+console.log(john.fullName);
